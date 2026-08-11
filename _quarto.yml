@@ -1,0 +1,16 @@
+project:
+  type: default
+  output-dir: _site
+
+execute:
+  freeze: auto
+
+bibliography: references.bib
+
+resources:
+  - notebooks/**
+  - assets/**
+
+format:
+  html:
+    toc: true
