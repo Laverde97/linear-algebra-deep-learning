@@ -1,6 +1,12 @@
 # Álgebra lineal para Deep Learning — Quarto + Google Colab
 
+🎓 **Presentación interactiva publicada en GitHub Pages**
+
+👉 [Abrir presentación: Álgebra lineal para Deep Learning](https://laverde97.github.io/linear-algebra-deep-learning/)
+
 Proyecto de clase basado en la enumeración del **Capítulo 2: Linear Algebra** de *Deep Learning* (Goodfellow, Bengio y Courville). El contenido de la presentación es una explicación pedagógica propia, orientada a un público inicialmente no técnico, y cada apartado se replica con un laboratorio ejecutable en Google Colab.
+
+## Objetivo
 
 ## Objetivo
 
