@@ -6,27 +6,40 @@ date: "2026"
 format:
   revealjs:
     theme: [default, styles.scss]
+    slide-level: 2
     slide-number: c/t
     show-slide-number: all
+
     transition: fade
     background-transition: fade
+
     center-title-slide: false
+    center: false
     controls: true
+    controls-tutorial: false
+    controls-layout: edges
     progress: true
+
     hash: true
     history: true
     navigation-mode: linear
+
     code-copy: true
     code-line-numbers: false
+
     chalkboard: true
     preview-links: auto
+
     footer: "Linear Algebra for Deep Learning · Google Colab + Quarto"
+
     width: 1600
     height: 900
     margin: 0.08
+
     smaller: false
     scrollable: false
     self-contained: false
+
 bibliography: references.bib
 ---
 
@@ -59,16 +72,51 @@ Al terminar, el grupo podrá:
 
 ## Ruta de 3 horas
 
-<div class="kpi-grid">
-<div class="kpi"><div class="num">45 min</div><div class="label">2.1–2.4 · objetos, productos, inversa, span</div></div>
-<div class="kpi"><div class="num">35 min</div><div class="label">2.5–2.7 · normas, matrices especiales, eigen</div></div>
-<div class="kpi"><div class="num">45 min</div><div class="label">2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA</div></div>
-<div class="kpi"><div class="num">35 min</div><div class="label">Colab · datasets + frameworks + CPU/GPU</div></div>
-</div>
+::::: {.kpi-grid}
 
-<div class="small muted center">+ 20 min distribuidos en preguntas, transiciones y una pausa corta.</div>
+:::: {.kpi}
+::: {.num}
+45 min
+:::
+::: {.label}
+2.1–2.4 · objetos, productos, inversa, span
+:::
+::::
 
-# 2.1 Escalares, vectores, matrices y tensores
+:::: {.kpi}
+::: {.num}
+35 min
+:::
+::: {.label}
+2.5–2.7 · normas, matrices especiales, eigen
+:::
+::::
+
+:::: {.kpi}
+::: {.num}
+45 min
+:::
+::: {.label}
+2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA
+:::
+::::
+
+:::: {.kpi}
+::: {.num}
+35 min
+:::
+::: {.label}
+Colab · datasets + frameworks + CPU/GPU
+:::
+::::
+
+:::::
+
+::: {.small .muted .center}
+**+ 20 min** distribuidos en preguntas, transiciones y una pausa corta.
+:::
+
+## 2.1 Escalares, vectores, matrices y tensores
 
 ## Cuatro objetos, una misma idea
 
@@ -105,8 +153,8 @@ print(datos.shape)  # (100, 4)
 
 ## MNIST: nosotros vemos un “5”; la máquina ve números
 
-<div class="columns">
-<div class="column" width="46%">
+:::: {.columns}
+::: {.column width="46%"}
 
 **Una imagen MNIST**
 
@@ -119,8 +167,8 @@ print(datos.shape)  # (100, 4)
 (28, 28)
 ```
 
-</div>
-<div class="column" width="54%">
+:::
+::: {.column width="54%"}
 
 ```python
 (x_train, y_train), _ = mnist.load_data()
@@ -132,8 +180,8 @@ print(x_train[0].shape)
 # (28, 28)
 ```
 
-</div>
-</div>
+:::
+::::
 
 ## De píxel a tensor
 
@@ -235,9 +283,9 @@ A + b
  [14,25,36]]
 ```
 
-<div class="lab-button">[Abrir laboratorio 2.1 en Colab](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/01_scalars_vectors_matrices_tensors.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.1 en Colab](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/01_scalars_vectors_matrices_tensors.ipynb)</div>
 
-# 2.2 Multiplicación de matrices y vectores
+## 2.2 Multiplicación de matrices y vectores
 
 ## La neurona como producto punto
 
@@ -303,9 +351,9 @@ A * B   # Hadamard / element-wise
 A @ B   # matrix multiplication
 ```
 
-<div class="lab-button">[Abrir laboratorio 2.2](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/02_multiplying_matrices_vectors.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.2](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/02_multiplying_matrices_vectors.ipynb)</div>
 
-# 2.3 Matrices identidad e inversa
+## 2.3 Matrices identidad e inversa
 
 ## Identidad: el “1” de las matrices
 
@@ -354,9 +402,9 @@ La segunda fila no aporta una dirección nueva.
 - rango insuficiente
 - información lineal redundante
 
-<div class="lab-button">[Abrir laboratorio 2.3](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/03_identity_inverse_matrices.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.3](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/03_identity_inverse_matrices.ipynb)</div>
 
-# 2.4 Dependencia lineal y span
+## 2.4 Dependencia lineal y span
 
 ## ¿Qué significa “dependencia”?
 
@@ -401,9 +449,9 @@ np.linalg.matrix_rank(X)  # rango 2
 
 > Tenemos tres columnas, pero solo **dos direcciones de información lineal**.
 
-<div class="lab-button">[Abrir laboratorio 2.4](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/04_linear_dependence_span.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.4](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/04_linear_dependence_span.ipynb)</div>
 
-# 2.5 Normas
+## 2.5 Normas
 
 ## Norma = una forma de medir magnitud
 
@@ -427,22 +475,22 @@ np.linalg.norm(x, 1)  # L1
 np.linalg.norm(x, 2)  # L2
 ```
 
-<div class="columns">
-<div class="column" width="50%">
+:::: {.columns}
+::: {.column width="50%"}
 
 ### $L^1$
 
 “¿Cuánto suman todos los desplazamientos?”
 
-</div>
-<div class="column" width="50%">
+:::
+::: {.column width="50%"}
 
 ### $L^2$
 
 “¿Cuál es la distancia directa?”
 
-</div>
-</div>
+:::
+::::
 
 ## Distancia entre imágenes MNIST
 
@@ -466,9 +514,9 @@ $$\text{loss total}=\text{loss datos}+\lambda\|w\|$$
 - L1 → favorece soluciones más dispersas
 - L2 → desalienta pesos muy grandes
 
-<div class="lab-button">[Abrir laboratorio 2.5](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/05_norms.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.5](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/05_norms.ipynb)</div>
 
-# 2.6 Matrices y vectores especiales
+## 2.6 Matrices y vectores especiales
 
 ## Cuatro estructuras útiles
 
@@ -493,9 +541,9 @@ one_hot = np.eye(10)[7]
 
 > La posición contiene la categoría; el resto es cero.
 
-<div class="lab-button">[Abrir laboratorio 2.6](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/06_special_matrices_vectors.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.6](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/06_special_matrices_vectors.ipynb)</div>
 
-# 2.7 Eigendecomposition
+## 2.7 Eigendecomposition
 
 ## Autovector: una dirección que sobrevive a la transformación
 
@@ -534,9 +582,9 @@ Sus autovectores indican direcciones importantes y sus autovalores cuantifican l
 <div class="box">direcciones principales</div>
 </div>
 
-<div class="lab-button">[Abrir laboratorio 2.7](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/07_eigendecomposition.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.7](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/07_eigendecomposition.ipynb)</div>
 
-# 2.8 Singular Value Decomposition (SVD)
+## 2.8 Singular Value Decomposition (SVD)
 
 ## SVD: descomponer para entender
 
@@ -589,9 +637,9 @@ La idea de representar un objeto grande mediante una estructura de **menor rango
 - aproximaciones de matrices
 - adaptación eficiente de modelos
 
-<div class="lab-button">[Abrir laboratorio 2.8](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/08_svd.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.8](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/08_svd.ipynb)</div>
 
-# 2.9 Pseudoinversa de Moore–Penrose
+## 2.9 Pseudoinversa de Moore–Penrose
 
 ## Cuando $A^{-1}$ no existe o no aplica
 
@@ -623,9 +671,9 @@ beta = np.linalg.pinv(A) @ y
 <div class="box">mejor recta</div>
 </div>
 
-<div class="lab-button">[Abrir laboratorio 2.9](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/09_pseudoinverse.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.9](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/09_pseudoinverse.ipynb)</div>
 
-# 2.10 Operador traza
+## 2.10 Operador traza
 
 ## Traza = suma de la diagonal
 
@@ -654,9 +702,9 @@ $$\operatorname{Tr}(AB)=\operatorname{Tr}(BA)$$
 
 cuando las dimensiones permiten ambos productos.
 
-<div class="lab-button">[Abrir laboratorio 2.10](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/10_trace_operator.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.10](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/10_trace_operator.ipynb)</div>
 
-# 2.11 Determinante
+## 2.11 Determinante
 
 ## Determinante = factor de cambio de volumen
 
@@ -687,9 +735,9 @@ Eso conecta con:
 - dependencia lineal
 - rango insuficiente
 
-<div class="lab-button">[Abrir laboratorio 2.11](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/11_determinant.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.11](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/11_determinant.ipynb)</div>
 
-# 2.12 Ejemplo: Principal Components Analysis (PCA)
+## 2.12 Ejemplo: Principal Components Analysis (PCA)
 
 ## El problema de PCA
 
@@ -754,9 +802,9 @@ PCA no es un LLM ni una red profunda, pero prepara una intuición fundamental:
 
 > **Aprender buenas representaciones puede ser tan importante como aprender la predicción final.**
 
-<div class="lab-button">[Abrir laboratorio 2.12](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/12_pca.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio 2.12](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/12_pca.ipynb)</div>
 
-# Laboratorio transversal: CPU, GPU y frameworks
+## Laboratorio transversal: CPU, GPU y frameworks
 
 ## El álgebra no cambia; cambia dónde se ejecuta
 
@@ -804,9 +852,9 @@ Buscamos responder:
 4. ¿qué API resulta más explícita?
 5. ¿qué operaciones se benefician de paralelismo?
 
-<div class="lab-button">[Abrir laboratorio CPU/GPU](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning-quarto/blob/main/notebooks/13_cpu_gpu_frameworks.ipynb)</div>
+<div class="lab-button">[Abrir laboratorio CPU/GPU](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/13_cpu_gpu_frameworks.ipynb)</div>
 
-# Mapa final
+## Mapa final
 
 ## Del capítulo a una red neuronal
 
@@ -852,7 +900,7 @@ Buscamos responder:
 **Estructura preparada para GitHub Pages:**
 
 ```text
-linear-algebra-deep-learning-quarto/
+linear-algebra-deep-learning/
 ├── index.qmd
 ├── styles.scss
 ├── _quarto.yml
@@ -865,11 +913,11 @@ linear-algebra-deep-learning-quarto/
 
 URL prevista:
 
-`https://laverde97.github.io/linear-algebra-deep-learning-quarto/`
+`https://laverde97.github.io/linear-algebra-deep-learning/`
 
 ## Fuentes y créditos {.smaller}
 
-- Goodfellow, I., Bengio, Y. & Courville, A. *Deep Learning*, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html
+- Goodfellow, I., Bengio, Y. & Courville, A. **Deep Learning**, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html
 - Quarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/
 - Quarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html
 - MNIST via TensorFlow/Keras.
@@ -878,8 +926,7 @@ URL prevista:
 
 <div class="small muted">Contenido pedagógico original basado en los conceptos del capítulo; no reproduce el texto completo del libro.</div>
 
-# Gracias
-
+## Gracias
 ## La idea para llevarse
 
 > **Deep learning trabaja con representaciones. El álgebra lineal nos da el lenguaje para describirlas, transformarlas, medirlas y comprimirlas.**
