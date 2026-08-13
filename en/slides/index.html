@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="Juan Sebastian Laverde">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Linear Algebra / Álgebra lineal – Linear Algebra for Deep Learning</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-df2f61f7c0bf7dbb7d38d5801fc3402a.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block">
+  <h1 class="title">Linear Algebra for Deep Learning</h1>
+  <p class="subtitle">From scalars to PCA · Chapter 2 + reproducible Google Colab labs</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Juan Sebastian Laverde
+</div>
+</div>
+</div>
+
+  <p class="date">2026-01-01</p>
+</section>
+<section id="the-question-that-guides-the-class" class="slide level2">
+<h2>The question that guides the class</h2>
+<blockquote>
+<p><strong>How does a computer turn numbers, images, and text into mathematical objects that an AI model can process?</strong></p>
+</blockquote>
+<div class="flow">
+<div class="box">
+Real-world data
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+Numbers
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+Tensores
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+Operations
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+AI model
+</div>
+</div>
+<aside class="notes">
+<p>Do not start with formulas. Ask the group, ‘What does a computer see when we show it a photo?’ Guide them toward the idea of numerical representation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning objectives</h2>
+<p>By the end, learners will be able to:</p>
+<ol type="1">
+<li>Identify <strong>scalars, vectors, matrices, and tensors</strong> in real-world data.</li>
+<li>Interpret <code>shape</code>, <code>ndim</code>, batches, and channels.</li>
+<li>Understand why matrix multiplication appears in neural networks.</li>
+<li>Explain inverses, rank, norms, eigenvectors, SVD, and PCA intuitively.</li>
+<li>Reproduce <strong>each section from 2.1–2.12</strong> in Google Colab.</li>
+<li>Move tensors among <strong>NumPy, TensorFlow, and PyTorch</strong>, including CPU/GPU.</li>
+</ol>
+</section>
+<section id="three-hour-roadmap" class="slide level2">
+<h2>Three-hour roadmap</h2>
+<div class="kpi-grid">
+<div class="kpi">
+<div class="num">
+<p>45 min</p>
+</div>
+<div class="label">
+<p>2.1–2.4 · objects, products, inverse, span</p>
+</div>
+</div>
+<div class="kpi">
+<div class="num">
+<p>35 min</p>
+</div>
+<div class="label">
+<p>2.5–2.7 · norms, special matrices, eigen</p>
+</div>
+</div>
+<div class="kpi">
+<div class="num">
+<p>45 min</p>
+</div>
+<div class="label">
+<p>2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA</p>
+</div>
+</div>
+<div class="kpi">
+<div class="num">
+<p>35 min</p>
+</div>
+<div class="label">
+<p>Colab · datasets + frameworks + CPU/GPU</p>
+</div>
+</div>
+</div>
+<div class="small muted center">
+<p><strong>+ 20 min</strong> distribuidos en questions, transitions, and a short break.</p>
+</div>
+</section>
+<section id="scalars-vectors-matrices-and-tensors" class="slide level2">
+<h2>2.1 Scalars, vectors, matrices, and tensors</h2>
+<div class="center">
+<p><img data-src="../../shared/images/SCALAR_VECTOR_MATRIZ_TENSOR.png" style="width:75.0%"></p>
+</div>
+</section>
+<section id="scalars" class="slide level2 scalar-slide">
+<h2>Scalars</h2>
+<div class="columns scalar-layout">
+<div class="column" style="width:52%;">
+<div class="scalar-heading">
+Scalars
+</div>
+<div class="scalar-heading-line">
+
+</div>
+<div class="scalar-text">
+<p>A <strong>scalar</strong> is the simplest form of data: a single numerical or symbolic value. It can represent a constant or a univariate variable.</p>
+<p>In machine learning, we usually work with real-valued scalars:</p>
+<p><span class="math display">\[
+a \in \mathbb{R}
+\]</span></p>
+<div class="scalar-points">
+<div>
+<p><span class="dot purple"></span> <strong>Represents a single value</strong></p>
+</div>
+<div>
+<p><span class="dot cyan"></span> It has no dimensions or direction</p>
+</div>
+<div>
+<p><span class="dot yellow"></span> It can be real or complex</p>
+</div>
+</div>
+<div class="scalar-note">
+<p>Although they seem simple, scalars are fundamental: many model hyperparameters, such as learning rate <span class="math inline">\(\lambda\)</span>, the number of epochs, or a threshold, are often expressed as scalar values.</p>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="scalar-visual">
+<div class="scalar-main">
+<div class="cube-scene">
+<div class="scalar-cube">
+<div class="cube-face cube-front">
+
+</div>
+<div class="cube-face cube-right">
+
+</div>
+<div class="cube-face cube-top">
+
+</div>
+</div>
+</div>
+<div class="scalar-number">
+5
+</div>
+</div>
+<div class="scalar-cards">
+<div class="scalar-card card-purple">
+<div class="card-icon">
+🌡️
+</div>
+<div class="card-value">
+24°C
+</div>
+</div>
+<div class="scalar-card card-cyan">
+<div class="card-symbol">
+λ
+</div>
+<div class="card-value">
+= 0.01
+</div>
+</div>
+<div class="scalar-card card-yellow">
+<div class="card-symbol">
+x
+</div>
+<div class="card-value">
+= 3.5
+</div>
+</div>
+</div>
+<div class="scalar-definition">
+<p>A <span>scalar</span> <strong>=</strong> one value</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="vectors" class="slide level2 image-slide">
+<h2>Vectors</h2>
+
+<img data-src="../../shared/images/Vectores.png" class="vector-full-image r-stretch"></section>
+<section id="matrices" class="slide level2 matrix-image-slide">
+<h2>Matrices</h2>
+<div class="matrix-image-container">
+<p><img data-src="../../shared/images/Matrices.png"></p>
+</div>
+</section>
+<section id="vectors-1" class="slide level2 vector-image-slide">
+<h2>Vectors</h2>
+<div class="vector-image-container">
+<p><img data-src="../../shared/images/Vectores.png"></p>
+</div>
+</section>
+<section id="four-objects-one-idea" class="slide level2">
+<h2>Four objects, one idea</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Object</th>
+<th>Simple explanation</th>
+<th>Data example</th>
+<th>Typical shape</th>
+<th>Tensor dimension / rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Escalar</strong></td>
+<td>one number</td>
+<td>age</td>
+<td><code>()</code></td>
+<td><strong>Tensor 0D</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Vector</strong></td>
+<td>ordered list</td>
+<td>one person</td>
+<td><code>(4,)</code></td>
+<td><strong>Tensor 1D</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Matrix</strong></td>
+<td>2D table</td>
+<td>100 people × 4 variables</td>
+<td><code>(100, 4)</code></td>
+<td><strong>Tensor 2D</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Tensor 3D</strong></td>
+<td>array with 3 axes</td>
+<td>RGB image</td>
+<td><code>(224, 224, 3)</code></td>
+<td><strong>Tensor 3D</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Tensor 4D</strong></td>
+<td>array with 4 axes</td>
+<td>batch of RGB images</td>
+<td><code>(32, 224, 224, 3)</code></td>
+<td><strong>Tensor 4D</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Tensor 5D</strong></td>
+<td>array with 5 axes</td>
+<td>batch of videos</td>
+<td><code>(8, 30, 224, 224, 3)</code></td>
+<td><strong>Tensor 5D</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Tensor 6D</strong></td>
+<td>array with 6 axes</td>
+<td>batch of video sequences</td>
+<td><code>(4, 10, 30, 224, 224, 3)</code></td>
+<td><strong>Tensor 6D</strong></td>
+</tr>
+</tbody>
+</table>
+
+<img data-src="../../shared/images/Dim_Tensores.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><aside class="notes">
+<p>Avoid saying that tensor ‘always means 3D’.</p>
+<p>In modern frameworks, tensor is the general term for n-dimensional arrays.</p>
+<p>A scalar can be viewed as a rank-0 tensor.</p>
+<p>Explain the progression: - Escalar → tensor 0D - Vector → tensor 1D - Matrix → tensor 2D - RGB image → tensor 3D - Batch of images → tensor 4D - Video → tensor 4D - Lote de videos → tensor 5D</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="broadcasting" class="slide level2 full-image-slide">
+<h2>Broadcasting</h2>
+
+<img data-src="../../shared/images/Broadcasting.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/01_scalars_vectors_matrices_tensors.ipynb">Open lab 2.1 in Colab</a>
+</div>
+</section>
+<section id="matrix-and-vector-multiplication" class="slide level2 full-image-slide">
+<h2>2.2 Matrix and Vector Multiplication</h2>
+
+<img data-src="../../shared/images/Multi_Vect_matri.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/02_multiplying_matrices_vectors.ipynb">Open lab 2.2</a>
+</div>
+</section>
+<section id="identity-and-inverse-matrices" class="slide level2 full-image-slide">
+<h2>2.3 Identity and Inverse Matrices</h2>
+
+<img data-src="../../shared/images/Identidad_Inversa.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/03_identity_inverse_matrices.ipynb">Open lab 2.3</a>
+</div>
+</section>
+<section id="linear-dependence-and-span" class="slide level2 full-image-slide">
+<h2>2.4 Linear Dependence and Span</h2>
+
+<img data-src="../../shared/images/Dependencia_Lineal.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/04_linear_dependence_span.ipynb">Open lab 2.4</a>
+</div>
+</section>
+<section id="normas" class="slide level2 full-image-slide">
+<h2>2.5 Normas</h2>
+
+<img data-src="../../shared/images/Norms.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/05_norms.ipynb">Open lab 2.5</a>
+</div>
+</section>
+<section id="special-types-of-matrices-and-vectors" class="slide level2 full-image-slide">
+<h2>2.6 Special Types of Matrices and Vectors</h2>
+
+<img data-src="../../shared/images/Tipos_Especiales_M_V.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/06_special_matrices_vectors.ipynb">Open lab 2.6</a>
+</div>
+</section>
+<section id="eigendecomposition-eigendecomposition" class="slide level2 full-image-slide">
+<h2>2.7 Eigendecomposition (Eigendecomposition)</h2>
+
+<img data-src="../../shared/images/Eigendecomposition.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/07_eigendecomposition.ipynb">Open lab 2.7</a>
+</div>
+</section>
+<section id="singular-value-decomposition-svd" class="slide level2 full-image-slide">
+<h2>2.8 Singular Value Decomposition (SVD)</h2>
+
+<img data-src="../../shared/images/SVD.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/08_svd.ipynb">Open lab 2.8</a>
+</div>
+</section>
+<section id="moorepenrose-pseudoinverse" class="slide level2 full-image-slide">
+<h2>2.9 Moore–Penrose Pseudoinverse</h2>
+
+<img data-src="../../shared/images/Moore_Penrose_Pseudoinverse.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/09_pseudoinverse.ipynb">Open lab 2.9</a>
+</div>
+</section>
+<section id="the-trace-operator-trace-operator" class="slide level2 full-image-slide">
+<h2>2.10 The Trace Operator (Trace Operator)</h2>
+
+<img data-src="../../shared/images/Trace_Operator.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/10_trace_operator.ipynb">Open lab 2.10</a>
+</div>
+</section>
+<section id="determinant" class="slide level2 full-image-slide">
+<h2>2.11 Determinant</h2>
+
+<img data-src="../../shared/images/Determinante.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/11_determinant.ipynb">Open lab 2.11</a>
+</div>
+</section>
+<section id="example-principal-components-analysis-pca" class="slide level2 full-image-slide">
+<h2>2.12 Example: Principal Components Analysis (PCA)</h2>
+
+<img data-src="../../shared/images/PCA.png" class="r-stretch"><div class="lab-button">
+<a href="https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/12_pca.ipynb">Open lab 2.12</a>
+</div>
+</section>
+<section id="the-algebra-stays-the-same-where-it-runs-changes" class="slide level2">
+<h2>The algebra stays the same; where it runs changes</h2>
+<pre class="text"><code>               same operation
+                    A @ B
+                      │
+        ┌─────────────┼─────────────┐
+        ↓             ↓             ↓
+      NumPy      TensorFlow      PyTorch
+       CPU        CPU / GPU       CPU / GPU</code></pre>
+</section>
+<section id="repository-and-labs" class="slide level2">
+<h2>Repository and labs</h2>
+<p><strong>Structure prepared for GitHub Pages:</strong></p>
+<pre class="text"><code>linear-algebra-deep-learning/
+├── en/
+│   ├── slides/
+│   └── exercises/
+├── es/
+│   ├── slides/
+│   └── exercises/
+├── shared/
+├── _quarto.yml
+└── .github/workflows/publish.yml</code></pre>
+<p>Expected URL:</p>
+<p><code>https://laverde97.github.io/linear-algebra-deep-learning/</code></p>
+</section>
+<section id="sources-and-credits" class="slide level2 smaller">
+<h2>Sources and credits</h2>
+<ul>
+<li>Goodfellow, I., Bengio, Y. &amp; Courville, A. <strong>Deep Learning</strong>, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html</li>
+<li>Quarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/</li>
+<li>Quarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html</li>
+<li>MNIST via TensorFlow/Keras.</li>
+<li>IMDB Reviews via TensorFlow/Keras.</li>
+<li>ImageNet-v2 documentation via TensorFlow Datasets; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.</li>
+</ul>
+<div class="small muted">
+Original teaching content based on the chapter concepts; it does not reproduce the full text of the book.
+</div>
+</section>
+<section id="key-takeaway" class="slide level2">
+<h2>Key takeaway</h2>
+<blockquote>
+<p><strong>Deep learning works with representations. Linear algebra gives us the language to describe, transform, measure, and compress them.</strong></p>
+</blockquote>
+<div class="flow">
+<div class="box">
+Understand
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+Run
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+Visualize
+</div>
+<div class="arrow">
+→
+</div>
+<div class="box">
+Connect to AI
+</div>
+</div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Linear Algebra for Deep Learning · Google Colab + Quarto</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 8.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/Laverde97\.github\.io\/linear-algebra-deep-learning\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

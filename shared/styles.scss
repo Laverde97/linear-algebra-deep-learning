@@ -1,0 +1,1228 @@
+/*-- scss:defaults --*/
+
+$body-bg: #0b1020;
+$body-color: #f7f8fb;
+$link-color: #68d6ff;
+$presentation-heading-color: #ffffff;
+
+$font-family-sans-serif: "Inter", "Aptos", "Segoe UI", Arial, sans-serif;
+$presentation-heading-font: "Inter", "Aptos Display", "Segoe UI", Arial, sans-serif;
+
+$code-block-bg: #111a31;
+$code-color: #e8f2ff;
+
+
+/*-- scss:rules --*/
+
+
+/* =====================================================
+   ESTILOS GENERALES
+   ===================================================== */
+
+.reveal {
+  font-size: 32px;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  letter-spacing: -0.02em;
+  font-weight: 760;
+}
+
+.reveal h1 {
+  font-size: 2.25em;
+}
+
+.reveal h2 {
+  font-size: 1.55em;
+}
+
+.reveal h3 {
+  font-size: 1.05em;
+  color: #bcdcff;
+}
+
+
+/* =====================================================
+   PORTADA
+   ===================================================== */
+
+.reveal .title-slide h1,
+.reveal #title-slide h1 {
+  font-size: 2.35em;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #78ddff 48%,
+    #c9a6ff 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.reveal .subtitle {
+  color: #c8d3e6;
+  font-size: 1em;
+}
+
+.reveal .author,
+.reveal .date {
+  color: #9fb0ca;
+}
+
+
+/* =====================================================
+   CÓDIGO
+   ===================================================== */
+
+.reveal code {
+  border-radius: 6px;
+}
+
+.reveal pre code {
+  max-height: 520px;
+
+  padding: 0.8em;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 14px;
+}
+
+
+/* =====================================================
+   BLOCKQUOTE Y CALLOUT
+   ===================================================== */
+
+.reveal blockquote {
+  width: 92%;
+
+  padding: 0.6em 0.9em;
+
+  border-left: 5px solid #68d6ff;
+
+  border-radius: 0 12px 12px 0;
+
+  background: rgba(104,214,255,0.08);
+}
+
+.reveal .callout {
+  border-radius: 14px;
+}
+
+.reveal .panel-tabset [role="tab"] {
+  font-size: 0.72em;
+}
+
+
+/* =====================================================
+   CLASES GENERALES
+   ===================================================== */
+
+.small {
+  font-size: 0.72em;
+}
+
+.tiny {
+  font-size: 0.58em;
+}
+
+.center {
+  text-align: center;
+}
+
+.muted {
+  color: #9fb0ca;
+}
+
+.accent {
+  color: #68d6ff;
+}
+
+.accent2 {
+  color: #c9a6ff;
+}
+
+.good {
+  color: #91f5b2;
+}
+
+.warn {
+  color: #ffd27d;
+}
+
+
+/* =====================================================
+   KPI
+   ===================================================== */
+
+.kpi-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+.kpi {
+  min-height: 130px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(255,255,255,0.10);
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(104,214,255,0.12),
+    rgba(201,166,255,0.08)
+  );
+}
+
+.kpi .num {
+  font-size: 1.6em;
+  font-weight: 800;
+}
+
+.kpi .label {
+  font-size: 0.66em;
+  color: #bac7da;
+}
+
+
+/* =====================================================
+   FLOW
+   ===================================================== */
+
+.flow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+
+  margin-top: 24px;
+}
+
+.flow .box {
+  min-width: 130px;
+
+  padding: 14px 20px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.05);
+
+  text-align: center;
+
+  font-weight: 650;
+}
+
+.flow .arrow {
+  color: #68d6ff;
+
+  font-size: 1.4em;
+}
+
+
+/* =====================================================
+   DATASET CARD
+   ===================================================== */
+
+.dataset-card {
+  padding: 16px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.04);
+}
+
+
+/* =====================================================
+   TABLAS
+   ===================================================== */
+
+.reveal table {
+  font-size: 0.72em;
+}
+
+.reveal table th {
+  color: #bfe8ff;
+}
+
+
+/* =====================================================
+   SECTION NUMBER
+   ===================================================== */
+
+.section-number {
+  font-size: 0.72em;
+
+  color: #68d6ff;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   BOTÓN DE LAB
+   ===================================================== */
+
+.lab-button a {
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background: #f7f8fb;
+
+  color: #0b1020 !important;
+
+  text-decoration: none;
+
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   DIAPOSITIVA: ESCALARES
+   ===================================================== */
+
+/*
+   Se oculta el H2 generado por RevealJS,
+   porque la diapositiva usa un título visual propio.
+*/
+
+.scalar-slide > h2 {
+  display: none;
+}
+
+
+/* =====================================================
+   DISTRIBUCIÓN GENERAL DE LA DIAPOSITIVA
+   ===================================================== */
+
+.scalar-slide .scalar-layout {
+  display: grid !important;
+
+  grid-template-columns: 52% 48%;
+
+  width: 100%;
+
+  gap: 0;
+
+  align-items: start;
+}
+
+
+/*
+   Evita que las reglas flex de Quarto
+   interfieran con nuestro grid.
+*/
+
+.scalar-slide .column {
+  width: auto !important;
+
+  flex: none !important;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* Columna izquierda */
+
+.scalar-slide .column:first-child {
+  padding-right: 2rem;
+
+  border-right: 1px solid rgba(104,214,255,0.20);
+}
+
+
+/* Columna derecha */
+
+.scalar-slide .column:last-child {
+  padding-left: 2rem;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+}
+
+
+/* =====================================================
+   TÍTULO MANUAL "ESCALARES"
+   ===================================================== */
+
+.scalar-heading {
+  margin-top: 0;
+
+  margin-bottom: 0.35rem;
+
+  font-size: 2.15em;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  color: #ffffff;
+}
+
+
+/* Línea de color debajo del título */
+
+.scalar-heading-line {
+  width: 125px;
+
+  height: 5px;
+
+  margin-top: 0.15rem;
+
+  margin-bottom: 1.15rem;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #c98cff 0%,
+    #65ddff 55%,
+    #f1db60 100%
+  );
+
+  box-shadow:
+    0 0 10px rgba(104,214,255,0.12);
+}
+
+
+/* =====================================================
+   TEXTO IZQUIERDO
+   ===================================================== */
+
+.scalar-slide .scalar-text {
+  max-width: 96%;
+
+  padding-right: 0;
+
+  font-size: 0.86em;
+
+  line-height: 1.42;
+}
+
+.scalar-slide .scalar-text p {
+  margin-top: 0;
+
+  margin-bottom: 0.9rem;
+}
+
+.scalar-slide .scalar-text strong {
+  font-weight: 750;
+}
+
+
+/* =====================================================
+   ECUACIONES
+   ===================================================== */
+
+.scalar-slide .scalar-text .math.display {
+  margin-top: 0.6rem;
+
+  margin-bottom: 0.9rem;
+
+  text-align: center;
+
+  font-size: 1.05em;
+}
+
+
+/* =====================================================
+   PUNTOS PRINCIPALES
+   ===================================================== */
+
+.scalar-slide .scalar-points {
+  margin-top: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.scalar-slide .scalar-points > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  margin: 0.72rem 0;
+}
+
+
+/* =====================================================
+   PUNTOS DE COLORES
+   ===================================================== */
+
+.scalar-slide .dot {
+  display: inline-block;
+
+  width: 14px;
+
+  height: 14px;
+
+  min-width: 14px;
+
+  border-radius: 50%;
+}
+
+.scalar-slide .dot.purple {
+  background: #ae7cff;
+
+  box-shadow:
+    0 0 11px rgba(174,124,255,0.55);
+}
+
+.scalar-slide .dot.cyan {
+  background: #55ddea;
+
+  box-shadow:
+    0 0 11px rgba(85,221,234,0.55);
+}
+
+.scalar-slide .dot.yellow {
+  background: #f6d85c;
+
+  box-shadow:
+    0 0 11px rgba(246,216,92,0.50);
+}
+
+
+/* =====================================================
+   NOTA INFERIOR
+   ===================================================== */
+
+.scalar-slide .scalar-note {
+  max-width: 95%;
+
+  margin-top: 1rem;
+
+  padding: 0.9rem 1rem;
+
+  border-left: 4px solid #55ddea;
+
+  border-radius: 0 12px 12px 0;
+
+  background: rgba(255,255,255,0.055);
+
+  font-size: 0.83em;
+
+  line-height: 1.38;
+}
+
+
+/* =====================================================
+   CONTENEDOR DERECHO
+   ===================================================== */
+
+.scalar-slide .scalar-visual {
+  width: 100%;
+
+  min-height: 0;
+
+  height: auto;
+
+  padding-top: 3rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CUBO + NÚMERO 5
+   ===================================================== */
+
+.scalar-slide .scalar-main {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 2.6rem;
+
+  margin-top: 0;
+
+  margin-bottom: 1.5rem;
+}
+
+
+/* =====================================================
+   ESCENA DEL CUBO
+   ===================================================== */
+
+.scalar-slide .cube-scene {
+  width: 220px;
+
+  height: 190px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.scalar-slide .scalar-cube {
+  position: relative;
+
+  width: 205px;
+
+  height: 165px;
+}
+
+
+/* Base de las caras */
+
+.scalar-slide .cube-face {
+  position: absolute;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CARA FRONTAL
+   ===================================================== */
+
+.scalar-slide .cube-front {
+  width: 90px;
+
+  height: 90px;
+
+  left: 40px;
+
+  top: 50px;
+
+  background: linear-gradient(
+    145deg,
+    #ff8269,
+    #ef5d4d
+  );
+
+  border: 2.5px solid #ffffff;
+
+  z-index: 3;
+}
+
+
+/* =====================================================
+   CARA SUPERIOR
+   ===================================================== */
+
+.scalar-slide .cube-top {
+  width: 125px;
+
+  height: 32px;
+
+  left: 40px;
+
+  top: 18px;
+
+  background: linear-gradient(
+    145deg,
+    #ff9d79,
+    #ff7b61
+  );
+
+  clip-path: polygon(
+    28% 0%,
+    100% 0%,
+    72% 100%,
+    0% 100%
+  );
+
+  border: none;
+
+  z-index: 4;
+}
+
+
+/* Borde blanco de la cara superior */
+
+.scalar-slide .cube-top::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  clip-path: polygon(
+    28% 0%,
+    100% 0%,
+    72% 100%,
+    0% 100%,
+    28% 0%,
+    30% 5%,
+    5% 95%,
+    71% 95%,
+    95% 5%,
+    30% 5%
+  );
+
+  background: #ffffff;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   CARA DERECHA
+   ===================================================== */
+
+.scalar-slide .cube-right {
+  width: 35px;
+
+  height: 120px;
+
+  left: 130px;
+
+  top: 20px;
+
+  background: linear-gradient(
+    145deg,
+    #e96555,
+    #c6473d
+  );
+
+  clip-path: polygon(
+    0% 25%,
+    100% 0%,
+    100% 75%,
+    0% 100%
+  );
+
+  border: none;
+
+  z-index: 2;
+}
+
+
+/* Borde blanco de la cara derecha */
+
+.scalar-slide .cube-right::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  clip-path: polygon(
+    0% 25%,
+    100% 0%,
+    100% 75%,
+    0% 100%,
+    0% 25%,
+    7% 28%,
+    7% 94%,
+    93% 72%,
+    93% 6%,
+    7% 28%
+  );
+
+  background: #ffffff;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   NÚMERO 5
+   ===================================================== */
+
+.scalar-slide .scalar-number {
+  font-size: 6.4rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  background: linear-gradient(
+    180deg,
+    #55ddea 12%,
+    #58d8c7 55%,
+    #dcef63 100%
+  );
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  -webkit-text-fill-color: transparent;
+
+  filter:
+    drop-shadow(
+      0 0 14px rgba(85,221,234,0.15)
+    );
+}
+
+
+/* =====================================================
+   TARJETAS DE EJEMPLOS
+   ===================================================== */
+
+.scalar-slide .scalar-cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+
+  width: 100%;
+
+  max-width: 570px;
+
+  margin: 0 auto;
+}
+
+
+/* Tarjeta base */
+
+.scalar-slide .scalar-card {
+  min-width: 0;
+
+  height: 88px;
+
+  padding: 0 13px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border: 2px solid;
+
+  border-radius: 17px;
+
+  background: rgba(15,28,57,0.68);
+
+  font-size: 0.95em;
+
+  font-weight: 650;
+
+  white-space: nowrap;
+}
+
+
+/* Temperatura */
+
+.scalar-slide .card-purple {
+  border-color: #ae7cff;
+
+  box-shadow:
+    0 0 18px rgba(174,124,255,0.10);
+}
+
+
+/* Lambda */
+
+.scalar-slide .card-cyan {
+  border-color: #55ddea;
+
+  box-shadow:
+    0 0 18px rgba(85,221,234,0.10);
+}
+
+
+/* Variable x */
+
+.scalar-slide .card-yellow {
+  border-color: #f6d85c;
+
+  box-shadow:
+    0 0 18px rgba(246,216,92,0.10);
+}
+
+
+/* =====================================================
+   CONTENIDO DE LAS TARJETAS
+   ===================================================== */
+
+.scalar-slide .card-icon {
+  font-size: 1.45em;
+
+  line-height: 1;
+}
+
+.scalar-slide .card-symbol {
+  font-family: Georgia, serif;
+
+  font-size: 1.5em;
+
+  font-style: italic;
+
+  line-height: 1;
+}
+
+.scalar-slide .card-cyan .card-symbol {
+  color: #55ddea;
+}
+
+.scalar-slide .card-yellow .card-symbol {
+  color: #f6d85c;
+}
+
+.scalar-slide .card-value {
+  font-size: 0.98em;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   UN ESCALAR = UN SOLO VALOR
+   ===================================================== */
+
+.scalar-slide .scalar-definition {
+  width: 100%;
+
+  margin-top: 1.4rem;
+
+  text-align: center;
+
+  font-size: 1.18em;
+
+  letter-spacing: 0.01em;
+}
+
+.scalar-slide .scalar-definition span {
+  color: #55ddea;
+
+  font-weight: 700;
+}
+
+.scalar-slide .scalar-definition strong {
+  color: #f6d85c;
+
+  margin: 0 0.2em;
+}
+
+/* =====================================================
+   DIAPOSITIVA COMPLETA CON IMAGEN
+   ===================================================== */
+
+.image-slide {
+  padding: 0 !important;
+}
+
+.image-slide > h2 {
+  display: none;
+}
+
+.image-slide p {
+  margin: 0 !important;
+}
+
+.image-slide .vector-full-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+/* =====================================================
+   MATRICES COMO DIAPOSITIVA COMPLETA
+   ===================================================== */
+
+.matrix-image-slide > h2 {
+  display: none;
+}
+
+.matrix-image-slide {
+  padding: 0 !important;
+}
+
+.matrix-image-slide .matrix-image-container {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.matrix-image-slide .matrix-image-container p {
+  width: 100%;
+  height: 100%;
+
+  margin: 0 !important;
+}
+
+.matrix-image-slide .matrix-image-container img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0;
+}
+
+/* =====================================================
+   VECTORES COMO DIAPOSITIVA-IMAGEN
+   ===================================================== */
+
+.vector-image-slide > h2 {
+  display: none;
+}
+
+.vector-image-slide {
+  padding: 0 !important;
+}
+
+.vector-image-slide .vector-image-container {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.vector-image-slide .vector-image-container p {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vector-image-slide .vector-image-container img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  margin: 0;
+}
+
+/* =====================================================
+   DIAPOSITIVAS DE IMAGEN COMPLETA
+   ===================================================== */
+
+.full-image-slide > h2 {
+  display: none;
+}
+
+.full-image-slide {
+  padding: 0 !important;
+}
+
+.full-image-slide p {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+}
+
+.full-image-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+
+.full-image-slide > h2 {
+  display: none;
+}
+
+.full-image-slide {
+  padding: 0 !important;
+}
+
+.full-image-slide p {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+}
+
+.full-image-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+/* =====================================================
+   DIAPOSITIVAS DE IMAGEN COMPLETA
+   ===================================================== */
+
+.full-image-slide > h2 {
+  display: none;
+}
+
+.full-image-slide {
+  padding: 0 !important;
+}
+
+.full-image-slide p {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+}
+
+.full-image-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+.full-image-slide > h2 {
+  display: none;
+}
+
+.full-image-slide {
+  padding: 0 !important;
+}
+
+.full-image-slide p {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+}
+
+.full-image-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+/* =====================================================
+   DIAPOSITIVAS DE IMAGEN COMPLETA
+   ===================================================== */
+
+.full-image-slide > h2 {
+  display: none;
+}
+
+.full-image-slide {
+  padding: 0 !important;
+}
+
+.full-image-slide p {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+}
+
+.full-image-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}

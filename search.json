@@ -1,0 +1,366 @@
+[
+  {
+    "objectID": "es/slides/index.html#la-pregunta-que-guía-la-clase",
+    "href": "es/slides/index.html#la-pregunta-que-guía-la-clase",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "La pregunta que guía la clase",
+    "text": "La pregunta que guía la clase\n\n¿Cómo convierte una computadora números, imágenes y texto en objetos matemáticos que puede procesar un modelo de IA?\n\n\n\nDatos reales\n\n\n→\n\n\nNúmeros\n\n\n→\n\n\nTensores\n\n\n→\n\n\nOperaciones\n\n\n→\n\n\nModelo de IA\n\n\n\nNo comenzar con fórmulas. Preguntar al grupo: “¿Qué ve una computadora cuando le mostramos una foto?”. Llevarlos a la idea de representación numérica."
+  },
+  {
+    "objectID": "es/slides/index.html#objetivos-de-aprendizaje",
+    "href": "es/slides/index.html#objetivos-de-aprendizaje",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Objetivos de aprendizaje",
+    "text": "Objetivos de aprendizaje\nAl terminar, el grupo podrá:\n\nReconocer escalar, vector, matriz y tensor a partir de datos reales.\nInterpretar shape, ndim, batch y canales.\nEntender por qué la multiplicación matricial aparece en redes neuronales.\nExplicar de forma intuitiva inversa, rango, normas, autovectores, SVD y PCA.\nReplicar cada apartado 2.1–2.12 en Google Colab.\nMover tensores entre NumPy, TensorFlow y PyTorch, incluyendo CPU/GPU."
+  },
+  {
+    "objectID": "es/slides/index.html#ruta-de-3-horas",
+    "href": "es/slides/index.html#ruta-de-3-horas",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Ruta de 3 horas",
+    "text": "Ruta de 3 horas\n\n\n\n45 min\n\n\n2.1–2.4 · objetos, productos, inversa, span\n\n\n\n\n35 min\n\n\n2.5–2.7 · normas, matrices especiales, eigen\n\n\n\n\n45 min\n\n\n2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA\n\n\n\n\n35 min\n\n\nColab · datasets + frameworks + CPU/GPU\n\n\n\n\n+ 20 min distribuidos en preguntas, transiciones y una pausa corta."
+  },
+  {
+    "objectID": "es/slides/index.html#escalares-vectores-matrices-y-tensores",
+    "href": "es/slides/index.html#escalares-vectores-matrices-y-tensores",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.1 Escalares, vectores, matrices y tensores",
+    "text": "2.1 Escalares, vectores, matrices y tensores"
+  },
+  {
+    "objectID": "es/slides/index.html#escalares",
+    "href": "es/slides/index.html#escalares",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Escalares",
+    "text": "Escalares\n\n\n\nEscalares\n\n\n\n\n\nUn escalar es la forma más simple de dato: un único valor numérico o simbólico. Puede representar una constante o una variable univariante.\nEn aprendizaje automático, normalmente trabajamos con escalares reales:\n\\[\na \\in \\mathbb{R}\n\\]\n\n\n Representa un solo valor\n\n\n No tiene dimensiones ni dirección\n\n\n Puede ser real o complejo\n\n\n\nAunque parecen simples, los escalares son fundamentales: muchos hiperparámetros de un modelo, como la tasa de aprendizaje \\(\\lambda\\), el número de épocas o un umbral, suelen expresarse como valores escalares.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n\n\n\n🌡️\n\n\n24°C\n\n\n\n\nλ\n\n\n= 0.01\n\n\n\n\nx\n\n\n= 3.5\n\n\n\n\nUn escalar = un solo valor"
+  },
+  {
+    "objectID": "es/slides/index.html#vectores",
+    "href": "es/slides/index.html#vectores",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Vectores",
+    "text": "Vectores"
+  },
+  {
+    "objectID": "es/slides/index.html#matrices",
+    "href": "es/slides/index.html#matrices",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Matrices",
+    "text": "Matrices"
+  },
+  {
+    "objectID": "es/slides/index.html#vectores-1",
+    "href": "es/slides/index.html#vectores-1",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Vectores",
+    "text": "Vectores"
+  },
+  {
+    "objectID": "es/slides/index.html#cuatro-objetos-una-misma-idea",
+    "href": "es/slides/index.html#cuatro-objetos-una-misma-idea",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Cuatro objetos, una misma idea",
+    "text": "Cuatro objetos, una misma idea\n\n\n\n\n\n\n\n\n\n\nObjeto\nExplicación simple\nEjemplo de datos\nShape típica\nDimensión / rango del tensor\n\n\n\n\nEscalar\nun número\nedad\n()\nTensor 0D\n\n\nVector\nlista ordenada\nuna persona\n(4,)\nTensor 1D\n\n\nMatriz\ntabla 2D\n100 personas × 4 variables\n(100, 4)\nTensor 2D\n\n\nTensor 3D\narreglo con 3 ejes\nimagen RGB\n(224, 224, 3)\nTensor 3D\n\n\nTensor 4D\narreglo con 4 ejes\nlote de imágenes RGB\n(32, 224, 224, 3)\nTensor 4D\n\n\nTensor 5D\narreglo con 5 ejes\nlote de videos\n(8, 30, 224, 224, 3)\nTensor 5D\n\n\nTensor 6D\narreglo con 6 ejes\nlote de secuencias de video\n(4, 10, 30, 224, 224, 3)\nTensor 6D\n\n\n\n\n\nEvitar decir que tensor “siempre significa 3D”.\nEn frameworks modernos, tensor es el término general para arreglos n-dimensionales.\nUn escalar puede verse como un tensor de rango 0.\nExplicar la progresión: - Escalar → tensor 0D - Vector → tensor 1D - Matriz → tensor 2D - Imagen RGB → tensor 3D - Lote de imágenes → tensor 4D - Video → tensor 4D - Lote de videos → tensor 5D"
+  },
+  {
+    "objectID": "es/slides/index.html#broadcasting",
+    "href": "es/slides/index.html#broadcasting",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Broadcasting",
+    "text": "Broadcasting\n\n\nAbrir laboratorio 2.1 en Colab"
+  },
+  {
+    "objectID": "es/slides/index.html#multiplicación-de-matrices-y-vectores",
+    "href": "es/slides/index.html#multiplicación-de-matrices-y-vectores",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.2 Multiplicación de Matrices y Vectores",
+    "text": "2.2 Multiplicación de Matrices y Vectores\n\n\nAbrir laboratorio 2.2"
+  },
+  {
+    "objectID": "es/slides/index.html#matrices-identidad-e-inversa",
+    "href": "es/slides/index.html#matrices-identidad-e-inversa",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.3 Matrices identidad e inversa",
+    "text": "2.3 Matrices identidad e inversa\n\n\nAbrir laboratorio 2.3"
+  },
+  {
+    "objectID": "es/slides/index.html#dependencia-lineal-y-span",
+    "href": "es/slides/index.html#dependencia-lineal-y-span",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.4 Dependencia lineal y span",
+    "text": "2.4 Dependencia lineal y span\n\n\nAbrir laboratorio 2.4"
+  },
+  {
+    "objectID": "es/slides/index.html#normas",
+    "href": "es/slides/index.html#normas",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.5 Normas",
+    "text": "2.5 Normas\n\n\nAbrir laboratorio 2.5"
+  },
+  {
+    "objectID": "es/slides/index.html#tipos-especiales-de-matrices-y-vectores",
+    "href": "es/slides/index.html#tipos-especiales-de-matrices-y-vectores",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.6 Tipos especiales de matrices y vectores",
+    "text": "2.6 Tipos especiales de matrices y vectores\n\n\nAbrir laboratorio 2.6"
+  },
+  {
+    "objectID": "es/slides/index.html#descomposición-en-autovalores-eigendecomposition",
+    "href": "es/slides/index.html#descomposición-en-autovalores-eigendecomposition",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.7 Descomposición en autovalores (Eigendecomposition)",
+    "text": "2.7 Descomposición en autovalores (Eigendecomposition)\n\n\nAbrir laboratorio 2.7"
+  },
+  {
+    "objectID": "es/slides/index.html#descomposición-en-valores-singulares-svd",
+    "href": "es/slides/index.html#descomposición-en-valores-singulares-svd",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.8 Descomposición en valores singulares (SVD)",
+    "text": "2.8 Descomposición en valores singulares (SVD)\n\n\nAbrir laboratorio 2.8"
+  },
+  {
+    "objectID": "es/slides/index.html#pseudoinversa-de-moorepenrose",
+    "href": "es/slides/index.html#pseudoinversa-de-moorepenrose",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.9 Pseudoinversa de Moore–Penrose",
+    "text": "2.9 Pseudoinversa de Moore–Penrose\n\n\nAbrir laboratorio 2.9"
+  },
+  {
+    "objectID": "es/slides/index.html#el-operador-traza-trace-operator",
+    "href": "es/slides/index.html#el-operador-traza-trace-operator",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.10 El Operador Traza (Trace Operator)",
+    "text": "2.10 El Operador Traza (Trace Operator)\n\n\nAbrir laboratorio 2.10"
+  },
+  {
+    "objectID": "es/slides/index.html#determinante",
+    "href": "es/slides/index.html#determinante",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.11 Determinante",
+    "text": "2.11 Determinante\n\n\nAbrir laboratorio 2.11"
+  },
+  {
+    "objectID": "es/slides/index.html#ejemplo-principal-components-analysis-pca",
+    "href": "es/slides/index.html#ejemplo-principal-components-analysis-pca",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "2.12 Ejemplo: Principal Components Analysis (PCA)",
+    "text": "2.12 Ejemplo: Principal Components Analysis (PCA)\n\n\nAbrir laboratorio 2.12"
+  },
+  {
+    "objectID": "es/slides/index.html#el-álgebra-no-cambia-cambia-dónde-se-ejecuta",
+    "href": "es/slides/index.html#el-álgebra-no-cambia-cambia-dónde-se-ejecuta",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "El álgebra no cambia; cambia dónde se ejecuta",
+    "text": "El álgebra no cambia; cambia dónde se ejecuta\n               misma operación\n                    A @ B\n                      │\n        ┌─────────────┼─────────────┐\n        ↓             ↓             ↓\n      NumPy      TensorFlow      PyTorch\n       CPU        CPU / GPU       CPU / GPU"
+  },
+  {
+    "objectID": "es/slides/index.html#repositorio-y-laboratorios",
+    "href": "es/slides/index.html#repositorio-y-laboratorios",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Repositorio y laboratorios",
+    "text": "Repositorio y laboratorios\nEstructura preparada para GitHub Pages:\nlinear-algebra-deep-learning/\n├── en/\n│   ├── slides/\n│   └── exercises/\n├── es/\n│   ├── slides/\n│   └── exercises/\n├── shared/\n├── _quarto.yml\n└── .github/workflows/publish.yml\nURL prevista:\nhttps://laverde97.github.io/linear-algebra-deep-learning/"
+  },
+  {
+    "objectID": "es/slides/index.html#fuentes-y-créditos",
+    "href": "es/slides/index.html#fuentes-y-créditos",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "Fuentes y créditos",
+    "text": "Fuentes y créditos\n\nGoodfellow, I., Bengio, Y. & Courville, A. Deep Learning, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html\nQuarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/\nQuarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html\nMNIST via TensorFlow/Keras.\nIMDB Reviews via TensorFlow/Keras.\nImageNet-v2 documentation via TensorFlow Datasets; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.\n\n\nContenido pedagógico original basado en los conceptos del capítulo; no reproduce el texto completo del libro."
+  },
+  {
+    "objectID": "es/slides/index.html#la-idea-para-llevarse",
+    "href": "es/slides/index.html#la-idea-para-llevarse",
+    "title": "Álgebra lineal para Deep Learning",
+    "section": "La idea para llevarse",
+    "text": "La idea para llevarse\n\nDeep learning trabaja con representaciones. El álgebra lineal nos da el lenguaje para describirlas, transformarlas, medirlas y comprimirlas.\n\n\n\nEntender\n\n\n→\n\n\nEjecutar\n\n\n→\n\n\nVisualizar\n\n\n→\n\n\nConectar con IA"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "",
+    "text": "Open the English slides\nExercises and workshop guide\n\n\n\nAbrir las diapositivas en español\nEjercicios y guía del taller\n\n\nShared images, styles, code samples, and dependencies are stored once in shared/.\nLas imágenes, los estilos, los ejemplos de código y las dependencias se almacenan una sola vez en shared/."
+  },
+  {
+    "objectID": "index.html#choose-a-language-elige-un-idioma",
+    "href": "index.html#choose-a-language-elige-un-idioma",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "",
+    "text": "Open the English slides\nExercises and workshop guide\n\n\n\nAbrir las diapositivas en español\nEjercicios y guía del taller\n\n\nShared images, styles, code samples, and dependencies are stored once in shared/.\nLas imágenes, los estilos, los ejemplos de código y las dependencias se almacenan una sola vez en shared/."
+  },
+  {
+    "objectID": "en/slides/index.html#the-question-that-guides-the-class",
+    "href": "en/slides/index.html#the-question-that-guides-the-class",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "The question that guides the class",
+    "text": "The question that guides the class\n\nHow does a computer turn numbers, images, and text into mathematical objects that an AI model can process?\n\n\n\nReal-world data\n\n\n→\n\n\nNumbers\n\n\n→\n\n\nTensores\n\n\n→\n\n\nOperations\n\n\n→\n\n\nAI model\n\n\n\nDo not start with formulas. Ask the group, ‘What does a computer see when we show it a photo?’ Guide them toward the idea of numerical representation."
+  },
+  {
+    "objectID": "en/slides/index.html#learning-objectives",
+    "href": "en/slides/index.html#learning-objectives",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end, learners will be able to:\n\nIdentify scalars, vectors, matrices, and tensors in real-world data.\nInterpret shape, ndim, batches, and channels.\nUnderstand why matrix multiplication appears in neural networks.\nExplain inverses, rank, norms, eigenvectors, SVD, and PCA intuitively.\nReproduce each section from 2.1–2.12 in Google Colab.\nMove tensors among NumPy, TensorFlow, and PyTorch, including CPU/GPU."
+  },
+  {
+    "objectID": "en/slides/index.html#three-hour-roadmap",
+    "href": "en/slides/index.html#three-hour-roadmap",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Three-hour roadmap",
+    "text": "Three-hour roadmap\n\n\n\n45 min\n\n\n2.1–2.4 · objects, products, inverse, span\n\n\n\n\n35 min\n\n\n2.5–2.7 · norms, special matrices, eigen\n\n\n\n\n45 min\n\n\n2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA\n\n\n\n\n35 min\n\n\nColab · datasets + frameworks + CPU/GPU\n\n\n\n\n+ 20 min distribuidos en questions, transitions, and a short break."
+  },
+  {
+    "objectID": "en/slides/index.html#scalars-vectors-matrices-and-tensors",
+    "href": "en/slides/index.html#scalars-vectors-matrices-and-tensors",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.1 Scalars, vectors, matrices, and tensors",
+    "text": "2.1 Scalars, vectors, matrices, and tensors"
+  },
+  {
+    "objectID": "en/slides/index.html#scalars",
+    "href": "en/slides/index.html#scalars",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Scalars",
+    "text": "Scalars\n\n\n\nScalars\n\n\n\n\n\nA scalar is the simplest form of data: a single numerical or symbolic value. It can represent a constant or a univariate variable.\nIn machine learning, we usually work with real-valued scalars:\n\\[\na \\in \\mathbb{R}\n\\]\n\n\n Represents a single value\n\n\n It has no dimensions or direction\n\n\n It can be real or complex\n\n\n\nAlthough they seem simple, scalars are fundamental: many model hyperparameters, such as learning rate \\(\\lambda\\), the number of epochs, or a threshold, are often expressed as scalar values.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n\n\n\n🌡️\n\n\n24°C\n\n\n\n\nλ\n\n\n= 0.01\n\n\n\n\nx\n\n\n= 3.5\n\n\n\n\nA scalar = one value"
+  },
+  {
+    "objectID": "en/slides/index.html#vectors",
+    "href": "en/slides/index.html#vectors",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Vectors",
+    "text": "Vectors"
+  },
+  {
+    "objectID": "en/slides/index.html#matrices",
+    "href": "en/slides/index.html#matrices",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Matrices",
+    "text": "Matrices"
+  },
+  {
+    "objectID": "en/slides/index.html#vectors-1",
+    "href": "en/slides/index.html#vectors-1",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Vectors",
+    "text": "Vectors"
+  },
+  {
+    "objectID": "en/slides/index.html#four-objects-one-idea",
+    "href": "en/slides/index.html#four-objects-one-idea",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Four objects, one idea",
+    "text": "Four objects, one idea\n\n\n\n\n\n\n\n\n\n\nObject\nSimple explanation\nData example\nTypical shape\nTensor dimension / rank\n\n\n\n\nEscalar\none number\nage\n()\nTensor 0D\n\n\nVector\nordered list\none person\n(4,)\nTensor 1D\n\n\nMatrix\n2D table\n100 people × 4 variables\n(100, 4)\nTensor 2D\n\n\nTensor 3D\narray with 3 axes\nRGB image\n(224, 224, 3)\nTensor 3D\n\n\nTensor 4D\narray with 4 axes\nbatch of RGB images\n(32, 224, 224, 3)\nTensor 4D\n\n\nTensor 5D\narray with 5 axes\nbatch of videos\n(8, 30, 224, 224, 3)\nTensor 5D\n\n\nTensor 6D\narray with 6 axes\nbatch of video sequences\n(4, 10, 30, 224, 224, 3)\nTensor 6D\n\n\n\n\n\nAvoid saying that tensor ‘always means 3D’.\nIn modern frameworks, tensor is the general term for n-dimensional arrays.\nA scalar can be viewed as a rank-0 tensor.\nExplain the progression: - Escalar → tensor 0D - Vector → tensor 1D - Matrix → tensor 2D - RGB image → tensor 3D - Batch of images → tensor 4D - Video → tensor 4D - Lote de videos → tensor 5D"
+  },
+  {
+    "objectID": "en/slides/index.html#broadcasting",
+    "href": "en/slides/index.html#broadcasting",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Broadcasting",
+    "text": "Broadcasting\n\n\nOpen lab 2.1 in Colab"
+  },
+  {
+    "objectID": "en/slides/index.html#matrix-and-vector-multiplication",
+    "href": "en/slides/index.html#matrix-and-vector-multiplication",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.2 Matrix and Vector Multiplication",
+    "text": "2.2 Matrix and Vector Multiplication\n\n\nOpen lab 2.2"
+  },
+  {
+    "objectID": "en/slides/index.html#identity-and-inverse-matrices",
+    "href": "en/slides/index.html#identity-and-inverse-matrices",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.3 Identity and Inverse Matrices",
+    "text": "2.3 Identity and Inverse Matrices\n\n\nOpen lab 2.3"
+  },
+  {
+    "objectID": "en/slides/index.html#linear-dependence-and-span",
+    "href": "en/slides/index.html#linear-dependence-and-span",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.4 Linear Dependence and Span",
+    "text": "2.4 Linear Dependence and Span\n\n\nOpen lab 2.4"
+  },
+  {
+    "objectID": "en/slides/index.html#normas",
+    "href": "en/slides/index.html#normas",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.5 Normas",
+    "text": "2.5 Normas\n\n\nOpen lab 2.5"
+  },
+  {
+    "objectID": "en/slides/index.html#special-types-of-matrices-and-vectors",
+    "href": "en/slides/index.html#special-types-of-matrices-and-vectors",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.6 Special Types of Matrices and Vectors",
+    "text": "2.6 Special Types of Matrices and Vectors\n\n\nOpen lab 2.6"
+  },
+  {
+    "objectID": "en/slides/index.html#eigendecomposition-eigendecomposition",
+    "href": "en/slides/index.html#eigendecomposition-eigendecomposition",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.7 Eigendecomposition (Eigendecomposition)",
+    "text": "2.7 Eigendecomposition (Eigendecomposition)\n\n\nOpen lab 2.7"
+  },
+  {
+    "objectID": "en/slides/index.html#singular-value-decomposition-svd",
+    "href": "en/slides/index.html#singular-value-decomposition-svd",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.8 Singular Value Decomposition (SVD)",
+    "text": "2.8 Singular Value Decomposition (SVD)\n\n\nOpen lab 2.8"
+  },
+  {
+    "objectID": "en/slides/index.html#moorepenrose-pseudoinverse",
+    "href": "en/slides/index.html#moorepenrose-pseudoinverse",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.9 Moore–Penrose Pseudoinverse",
+    "text": "2.9 Moore–Penrose Pseudoinverse\n\n\nOpen lab 2.9"
+  },
+  {
+    "objectID": "en/slides/index.html#the-trace-operator-trace-operator",
+    "href": "en/slides/index.html#the-trace-operator-trace-operator",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.10 The Trace Operator (Trace Operator)",
+    "text": "2.10 The Trace Operator (Trace Operator)\n\n\nOpen lab 2.10"
+  },
+  {
+    "objectID": "en/slides/index.html#determinant",
+    "href": "en/slides/index.html#determinant",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.11 Determinant",
+    "text": "2.11 Determinant\n\n\nOpen lab 2.11"
+  },
+  {
+    "objectID": "en/slides/index.html#example-principal-components-analysis-pca",
+    "href": "en/slides/index.html#example-principal-components-analysis-pca",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "2.12 Example: Principal Components Analysis (PCA)",
+    "text": "2.12 Example: Principal Components Analysis (PCA)\n\n\nOpen lab 2.12"
+  },
+  {
+    "objectID": "en/slides/index.html#the-algebra-stays-the-same-where-it-runs-changes",
+    "href": "en/slides/index.html#the-algebra-stays-the-same-where-it-runs-changes",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "The algebra stays the same; where it runs changes",
+    "text": "The algebra stays the same; where it runs changes\n               same operation\n                    A @ B\n                      │\n        ┌─────────────┼─────────────┐\n        ↓             ↓             ↓\n      NumPy      TensorFlow      PyTorch\n       CPU        CPU / GPU       CPU / GPU"
+  },
+  {
+    "objectID": "en/slides/index.html#repository-and-labs",
+    "href": "en/slides/index.html#repository-and-labs",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Repository and labs",
+    "text": "Repository and labs\nStructure prepared for GitHub Pages:\nlinear-algebra-deep-learning/\n├── en/\n│   ├── slides/\n│   └── exercises/\n├── es/\n│   ├── slides/\n│   └── exercises/\n├── shared/\n├── _quarto.yml\n└── .github/workflows/publish.yml\nExpected URL:\nhttps://laverde97.github.io/linear-algebra-deep-learning/"
+  },
+  {
+    "objectID": "en/slides/index.html#sources-and-credits",
+    "href": "en/slides/index.html#sources-and-credits",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Sources and credits",
+    "text": "Sources and credits\n\nGoodfellow, I., Bengio, Y. & Courville, A. Deep Learning, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html\nQuarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/\nQuarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html\nMNIST via TensorFlow/Keras.\nIMDB Reviews via TensorFlow/Keras.\nImageNet-v2 documentation via TensorFlow Datasets; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.\n\n\nOriginal teaching content based on the chapter concepts; it does not reproduce the full text of the book."
+  },
+  {
+    "objectID": "en/slides/index.html#key-takeaway",
+    "href": "en/slides/index.html#key-takeaway",
+    "title": "Linear Algebra for Deep Learning",
+    "section": "Key takeaway",
+    "text": "Key takeaway\n\nDeep learning works with representations. Linear algebra gives us the language to describe, transform, measure, and compress them.\n\n\n\nUnderstand\n\n\n→\n\n\nRun\n\n\n→\n\n\nVisualize\n\n\n→\n\n\nConnect to AI"
+  }
+]
