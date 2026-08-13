@@ -1,7 +1,7 @@
 ---
 title: "Álgebra lineal para Deep Learning"
 subtitle: "De escalares a PCA · Capítulo 2 + laboratorios reproducibles en Google Colab"
-author: "PhD Ravi Kalia"
+author: "Juan Sebastian Laverde "
 date: "2026"
 format:
   revealjs:
@@ -118,693 +118,238 @@ Colab · datasets + frameworks + CPU/GPU
 
 ## 2.1 Escalares, vectores, matrices y tensores
 
+<div class="center">
+
+![](image/SCALAR_VECTOR_MATRIZ_TENSOR.png){width="75%"}
+
+</div>
+
+## Escalares {.scalar-slide}
+
+::: {.columns .scalar-layout}
+
+::: {.column width="52%"}
+
+<div class="scalar-heading">Escalares</div>
+<div class="scalar-heading-line"></div>
+
+::: {.scalar-text}
+
+Un **escalar** es la forma más simple de dato:  
+un único valor numérico o simbólico. Puede  
+representar una constante o una variable  
+univariante.
+
+En aprendizaje automático, normalmente  
+trabajamos con escalares reales:  
+
+$$
+a \in \mathbb{R}
+$$
+
+::: {.scalar-points}
+
+<div>
+<span class="dot purple"></span>
+<strong>Representa un solo valor</strong>
+</div>
+
+<div>
+<span class="dot cyan"></span>
+No tiene dimensiones ni dirección
+</div>
+
+<div>
+<span class="dot yellow"></span>
+Puede ser real o complejo
+</div>
+
+:::
+
+::: {.scalar-note}
+
+Aunque parecen simples, los escalares son  
+fundamentales: muchos hiperparámetros de  
+un modelo, como la tasa de aprendizaje $\lambda$, el  
+número de épocas o un umbral, suelen  
+expresarse como valores escalares.
+
+:::
+
+:::
+
+:::
+
+::: {.column width="48%"}
+
+::: {.scalar-visual}
+
+<div class="scalar-main">
+
+<div class="cube-scene">
+<div class="scalar-cube">
+<div class="cube-face cube-front"></div>
+<div class="cube-face cube-right"></div>
+<div class="cube-face cube-top"></div>
+</div>
+</div>
+
+<div class="scalar-number">5</div>
+
+</div>
+
+<div class="scalar-cards">
+
+<div class="scalar-card card-purple">
+<div class="card-icon">🌡️</div>
+<div class="card-value">24°C</div>
+</div>
+
+<div class="scalar-card card-cyan">
+<div class="card-symbol">λ</div>
+<div class="card-value">= 0.01</div>
+</div>
+
+<div class="scalar-card card-yellow">
+<div class="card-symbol">x</div>
+<div class="card-value">= 3.5</div>
+</div>
+
+</div>
+
+<div class="scalar-definition">
+Un <span>escalar</span> <strong>=</strong> un solo valor
+</div>
+
+:::
+
+:::
+
+:::
+
+## Vectores {.image-slide}
+
+![](image/Vectores.png){.vector-full-image}
+
+## Matrices {.matrix-image-slide}
+
+<div class="matrix-image-container">
+
+![](image/Matrices.png)
+
+</div>
+
+## Vectores {.vector-image-slide}
+
+<div class="vector-image-container">
+
+![](image/Vectores.png)
+
+</div>
+
 ## Cuatro objetos, una misma idea
 
-| Objeto | Explicación simple | Ejemplo de datos | Shape típica |
-|---|---|---|---|
-| **Escalar** | un número | edad | `()` |
-| **Vector** | lista ordenada | una persona | `(4,)` |
-| **Matriz** | tabla 2D | 100 personas × 4 variables | `(100, 4)` |
-| **Tensor** | arreglo con cualquier número de ejes | lote de imágenes | `(32, 224, 224, 3)` |
+| Objeto | Explicación simple | Ejemplo de datos | Shape típica | Dimensión / rango del tensor |
+|---|---|---|---|---|
+| **Escalar** | un número | edad | `()` | **Tensor 0D** |
+| **Vector** | lista ordenada | una persona | `(4,)` | **Tensor 1D** |
+| **Matriz** | tabla 2D | 100 personas × 4 variables | `(100, 4)` | **Tensor 2D** |
+| **Tensor 3D** | arreglo con 3 ejes | imagen RGB | `(224, 224, 3)` | **Tensor 3D** |
+| **Tensor 4D** | arreglo con 4 ejes | lote de imágenes RGB | `(32, 224, 224, 3)` | **Tensor 4D** |
+| **Tensor 5D** | arreglo con 5 ejes | lote de videos | `(8, 30, 224, 224, 3)` | **Tensor 5D** |
+| **Tensor 6D** | arreglo con 6 ejes | lote de secuencias de video | `(4, 10, 30, 224, 224, 3)` | **Tensor 6D** |
+
+![](image/Dim_Tensores.png){fig-align="center" width="55%"}
 
 ::: {.notes}
-Evitar decir que tensor “siempre significa 3D”. En frameworks modernos, tensor es el término general para arreglos n-dimensionales; un escalar puede verse como tensor de rango 0.
+Evitar decir que tensor “siempre significa 3D”.
+
+En frameworks modernos, tensor es el término general para arreglos n-dimensionales.
+
+Un escalar puede verse como un tensor de rango 0.
+
+Explicar la progresión:
+- Escalar → tensor 0D
+- Vector → tensor 1D
+- Matriz → tensor 2D
+- Imagen RGB → tensor 3D
+- Lote de imágenes → tensor 4D
+- Video → tensor 4D
+- Lote de videos → tensor 5D
 :::
 
-## Un dataset tabular simulado
+## Broadcasting {.full-image-slide}
 
-```python
-edades   = np.random.randint(18, 80, 100)
-peso     = np.random.uniform(50, 100, 100)
-altura   = np.random.uniform(1.50, 1.95, 100)
-ingresos = np.random.uniform(1e6, 12e6, 100)
-
-datos = np.column_stack([edades, peso, altura, ingresos])
-print(datos.shape)  # (100, 4)
-```
-
-<div class="flow">
-<div class="box">1 valor<br><span class="accent">escalar</span></div>
-<div class="arrow">→</div>
-<div class="box">1 fila<br><span class="accent">vector</span></div>
-<div class="arrow">→</div>
-<div class="box">tabla<br><span class="accent">matriz</span></div>
-</div>
-
-## MNIST: nosotros vemos un “5”; la máquina ve números
-
-:::: {.columns}
-::: {.column width="46%"}
-
-**Una imagen MNIST**
-
-- 28 filas
-- 28 columnas
-- escala de grises
-- 784 intensidades
-
-```text
-(28, 28)
-```
-
-:::
-::: {.column width="54%"}
-
-```python
-(x_train, y_train), _ = mnist.load_data()
-
-print(x_train.shape)
-# (60000, 28, 28)
-
-print(x_train[0].shape)
-# (28, 28)
-```
-
-:::
-::::
-
-## De píxel a tensor
-
-<div class="flow">
-<div class="box">Píxel<br><b>240</b><br><span class="small">escalar</span></div>
-<div class="arrow">→</div>
-<div class="box">Fila<br><b>(28,)</b><br><span class="small">vector</span></div>
-<div class="arrow">→</div>
-<div class="box">Imagen<br><b>(28,28)</b><br><span class="small">matriz</span></div>
-<div class="arrow">→</div>
-<div class="box">Dataset<br><b>(60000,28,28)</b><br><span class="small">tensor</span></div>
-</div>
-
-::: {.notes}
-Esta es una de las diapositivas centrales. Pedir al grupo que identifique qué cambia: no el tipo de número, sino la organización en ejes.
-:::
-
-## ImageNet: aparece el canal de color
-
-Una imagen RGB agrega un eje:
-
-$$
-\text{alto}\times\text{ancho}\times\text{canales}
-$$
-
-```text
-(224, 224, 3)
-```
-
-Un batch de 32 imágenes:
-
-```text
-(32, 224, 224, 3)
-```
-
-<div class="small muted">Para la clase usamos una imagen en formato ImageNet y dejamos ImageNet-v2 como práctica opcional. ImageNet-v2 tiene 10.000 imágenes y su configuración estándar requiere una descarga grande, por lo que no es adecuada para una demo rápida.</div>
-
-## IMDB: ¿dónde está el texto?
-
-```text
-"This movie was excellent"
-           ↓
-      tokenización
-           ↓
-[14, 22, 16, 43, 530, ...]
-           ↓
-padding / truncation
-           ↓
-(batch, sequence_length)
-```
-
-```python
-x_imdb_pad = pad_sequences(x_imdb, maxlen=200)
-print(x_imdb_pad.shape)
-# (25000, 200)
-```
-
-## La misma idea en datos distintos
-
-| Caso | Representación |
-|---|---|
-| Datos simulados | `(100, 4)` |
-| MNIST | `(60000, 28, 28)` |
-| Imagen RGB | `(batch, 224, 224, 3)` |
-| IMDB | `(25000, 200)` |
-
-> **El dato cambia. La lógica tensorial permanece.**
-
-## NumPy, TensorFlow y PyTorch
-
-```python
-A_np    = np.array([[1., 2.], [3., 4.]])
-A_tf    = tf.constant(A_np)
-A_torch = torch.tensor(A_np)
-```
-
-| Ecosistema | Objeto | Rol típico |
-|---|---|---|
-| NumPy | `ndarray` | cálculo científico CPU |
-| TensorFlow | `Tensor` | ML + aceleradores + deployment |
-| PyTorch | `Tensor` | ML + autograd + investigación/producción |
-
-## Broadcasting
-
-En deep learning es común sumar un vector a cada fila de una matriz:
-
-$$C_{i,j}=A_{i,j}+b_j$$
-
-```python
-A = np.array([[1,2,3],
-              [4,5,6]])
-b = np.array([10,20,30])
-
-A + b
-```
-
-```text
-[[11,22,33],
- [14,25,36]]
-```
+![](image/Broadcasting.png)
 
 <div class="lab-button">[Abrir laboratorio 2.1 en Colab](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/01_scalars_vectors_matrices_tensors.ipynb)</div>
 
-## 2.2 Multiplicación de matrices y vectores
 
-## La neurona como producto punto
 
-Una versión mínima de una neurona:
+## 2.2 Multiplicación de Matrices y Vectores {.full-image-slide}
 
-$$z=\mathbf{x}^{\top}\mathbf{w}+b$$
-
-```python
-x = np.array([0.8, 0.3, 0.5])
-w = np.array([1.2,-0.7, 0.4])
-
-z = x @ w
-```
-
-> El producto punto **combina características con pesos**.
-
-## De una observación a un batch
-
-$$
-X\in\mathbb{R}^{m\times n},\quad W\in\mathbb{R}^{n\times p}
-$$
-
-$$
-Z=XW\in\mathbb{R}^{m\times p}
-$$
-
-```text
-32 ejemplos × 784 píxeles
-          @
-784 entradas × 10 clases
-          =
-32 ejemplos × 10 scores
-```
-
-## MNIST como una capa lineal
-
-```python
-X_batch = x_train[:32].reshape(32, -1) / 255.0
-W = np.random.randn(784, 10) * 0.01
-
-logits = X_batch @ W
-print(logits.shape)
-# (32, 10)
-```
-
-<div class="flow">
-<div class="box">imagen<br>28×28</div><div class="arrow">→</div>
-<div class="box">flatten<br>784</div><div class="arrow">→</div>
-<div class="box">matmul<br>784×10</div><div class="arrow">→</div>
-<div class="box">10 scores</div>
-</div>
-
-## Tres propiedades para recordar
-
-- **Distributiva:** $A(B+C)=AB+AC$
-- **Asociativa:** $A(BC)=(AB)C$
-- **No conmutativa:** normalmente $AB\neq BA$
-
-### Producto elemento a elemento ≠ producto matricial
-
-```python
-A * B   # Hadamard / element-wise
-A @ B   # matrix multiplication
-```
+![](image/Multi_Vect_matri.png)
 
 <div class="lab-button">[Abrir laboratorio 2.2](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/02_multiplying_matrices_vectors.ipynb)</div>
 
-## 2.3 Matrices identidad e inversa
+## 2.3 Matrices identidad e inversa {.full-image-slide}
 
-## Identidad: el “1” de las matrices
-
-$$AI=A$$
-
-```python
-I = np.eye(3)
-```
-
-```text
-[[1,0,0],
- [0,1,0],
- [0,0,1]]
-```
-
-## Inversa: deshacer una transformación
-
-Si $A^{-1}$ existe:
-
-$$A^{-1}A=I$$
-
-Para resolver:
-
-$$Ax=b$$
-
-podemos pensar en:
-
-$$x=A^{-1}b$$
-
-En código numérico, suele ser preferible:
-
-```python
-x = np.linalg.solve(A, b)
-```
-
-## ¿Por qué una matriz puede no tener inversa?
-
-```python
-S = [[1,2],
-     [2,4]]
-```
-
-La segunda fila no aporta una dirección nueva.
-
-- determinante = 0
-- rango insuficiente
-- información lineal redundante
+![](image/Identidad_Inversa.png)
 
 <div class="lab-button">[Abrir laboratorio 2.3](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/03_identity_inverse_matrices.ipynb)</div>
 
-## 2.4 Dependencia lineal y span
+## 2.4 Dependencia lineal y span {.full-image-slide}
 
-## ¿Qué significa “dependencia”?
-
-Si:
-
-$$v_2=2v_1$$
-
-entonces $v_2$ no agrega una dirección nueva.
-
-```python
-v1 = np.array([1.,2.])
-v2 = np.array([2.,4.])
-A  = np.column_stack([v1,v2])
-
-np.linalg.matrix_rank(A)
-# 1
-```
-
-## Span: el espacio alcanzable
-
-El **span** es el conjunto de todas las combinaciones lineales:
-
-$$a_1v_1+a_2v_2+\cdots+a_kv_k$$
-
-<div class="flow">
-<div class="box">1 dirección independiente</div><div class="arrow">→</div><div class="box">una línea</div>
-<div class="box">2 direcciones independientes</div><div class="arrow">→</div><div class="box">un plano</div>
-</div>
-
-## En datos: característica redundante
-
-```python
-x1 = np.random.randn(200)
-x2 = 3*x1
-x3 = np.random.randn(200)
-
-X = np.column_stack([x1,x2,x3])
-
-X.shape[1]                # 3 columnas
-np.linalg.matrix_rank(X)  # rango 2
-```
-
-> Tenemos tres columnas, pero solo **dos direcciones de información lineal**.
+![](image/Dependencia_Lineal.png)
 
 <div class="lab-button">[Abrir laboratorio 2.4](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/04_linear_dependence_span.ipynb)</div>
 
-## 2.5 Normas
+## 2.5 Normas {.full-image-slide}
 
-## Norma = una forma de medir magnitud
-
-Para un vector $x$:
-
-$$\|x\|_p=\left(\sum_i |x_i|^p\right)^{1/p}$$
-
-En ML aparecen especialmente:
-
-- $L^1$: suma de valores absolutos
-- $L^2$: distancia euclidiana
-- $L^\infty$: mayor valor absoluto
-- Frobenius: extensión útil para matrices
-
-## L1 y L2 con un ejemplo
-
-```python
-x = np.array([3., -4., 2.])
-
-np.linalg.norm(x, 1)  # L1
-np.linalg.norm(x, 2)  # L2
-```
-
-:::: {.columns}
-::: {.column width="50%"}
-
-### $L^1$
-
-“¿Cuánto suman todos los desplazamientos?”
-
-:::
-::: {.column width="50%"}
-
-### $L^2$
-
-“¿Cuál es la distancia directa?”
-
-:::
-::::
-
-## Distancia entre imágenes MNIST
-
-```python
-a = x_train[0] / 255.0
-b = x_train[1] / 255.0
-
-d = np.linalg.norm((a-b).ravel(), 2)
-```
-
-**Uso conceptual:** comparar qué tan “lejos” están dos objetos en un espacio numérico.
-
-En ML, la elección de distancia cambia qué significa **similar**.
-
-## Normas y regularización
-
-Una penalización sobre los pesos puede controlar complejidad:
-
-$$\text{loss total}=\text{loss datos}+\lambda\|w\|$$
-
-- L1 → favorece soluciones más dispersas
-- L2 → desalienta pesos muy grandes
+![](image/Norms.png)
 
 <div class="lab-button">[Abrir laboratorio 2.5](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/05_norms.ipynb)</div>
 
-## 2.6 Matrices y vectores especiales
+## 2.6 Tipos especiales de matrices y vectores {.full-image-slide}
 
-## Cuatro estructuras útiles
-
-| Estructura | Intuición | Uso frecuente |
-|---|---|---|
-| Diagonal | solo diagonal principal | escalamiento |
-| Simétrica | $A=A^T$ | covarianzas |
-| Ortogonal | columnas ortonormales | rotaciones / bases |
-| Vector unitario | norma 1 | dirección pura |
-
-## One-hot: un vector especial de clasificación
-
-Clase 7 entre 10 clases:
-
-```text
-[0,0,0,0,0,0,0,1,0,0]
-```
-
-```python
-one_hot = np.eye(10)[7]
-```
-
-> La posición contiene la categoría; el resto es cero.
+![](image/Tipos_Especiales_M_V.png)
 
 <div class="lab-button">[Abrir laboratorio 2.6](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/06_special_matrices_vectors.ipynb)</div>
 
-## 2.7 Eigendecomposition
+## 2.7 Descomposición en autovalores (Eigendecomposition) {.full-image-slide}
 
-## Autovector: una dirección que sobrevive a la transformación
-
-$$Av=\lambda v$$
-
-- $v$ = autovector → dirección especial
-- $\lambda$ = autovalor → cuánto se estira/contrae esa dirección
-
-> La transformación cambia la magnitud, **no la dirección** del autovector.
-
-## Un ejemplo numérico
-
-```python
-A = np.array([[3.,1.],
-              [0.,2.]])
-
-values, vectors = np.linalg.eig(A)
-```
-
-Verificación:
-
-```python
-A @ v ≈ lambda_ * v
-```
-
-## La conexión importante: covarianza
-
-Para una nube de datos, la matriz de covarianza resume cómo varían juntas las variables.
-
-Sus autovectores indican direcciones importantes y sus autovalores cuantifican la variación en esas direcciones.
-
-<div class="flow">
-<div class="box">datos</div><div class="arrow">→</div>
-<div class="box">covarianza</div><div class="arrow">→</div>
-<div class="box">eigenvectors</div><div class="arrow">→</div>
-<div class="box">direcciones principales</div>
-</div>
+![](image/Eigendecomposition.png)
 
 <div class="lab-button">[Abrir laboratorio 2.7](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/07_eigendecomposition.ipynb)</div>
 
-## 2.8 Singular Value Decomposition (SVD)
+## 2.8 Descomposición en valores singulares (SVD) {.full-image-slide}
 
-## SVD: descomponer para entender
-
-$$A=U\Sigma V^T$$
-
-La ventaja práctica:
-
-> SVD existe para cualquier matriz real, incluso cuando no es cuadrada.
-
-- $U$ → direcciones del espacio de salida
-- $\Sigma$ → valores singulares, importancia relativa
-- $V$ → direcciones del espacio de entrada
-
-## SVD como compresión
-
-Si conservamos solo los $k$ valores singulares más importantes:
-
-$$A\approx U_k\Sigma_kV_k^T$$
-
-<div class="flow">
-<div class="box">matriz original</div><div class="arrow">→</div>
-<div class="box">SVD</div><div class="arrow">→</div>
-<div class="box">top-k componentes</div><div class="arrow">→</div>
-<div class="box">aproximación</div>
-</div>
-
-## MNIST: reconstrucción de bajo rango
-
-```python
-U, s, Vt = np.linalg.svd(img, full_matrices=False)
-
-k = 5
-img_k = (U[:,:k] * s[:k]) @ Vt[:k,:]
-```
-
-Probar en Colab:
-
-```text
-k = 1 → estructura muy básica
-k = 5 → dígito reconocible
-k = 20 → reconstrucción cercana
-```
-
-## Conexión moderna
-
-La idea de representar un objeto grande mediante una estructura de **menor rango** aparece en:
-
-- compresión
-- reducción de parámetros
-- aproximaciones de matrices
-- adaptación eficiente de modelos
+![](image/SVD.png)
 
 <div class="lab-button">[Abrir laboratorio 2.8](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/08_svd.ipynb)</div>
 
-## 2.9 Pseudoinversa de Moore–Penrose
+## 2.9 Pseudoinversa de Moore–Penrose {.full-image-slide}
 
-## Cuando $A^{-1}$ no existe o no aplica
-
-Para matrices rectangulares usamos la pseudoinversa:
-
-$$A^+$$
-
-```python
-A_plus = np.linalg.pinv(A)
-x = A_plus @ y
-```
-
-Puede producir:
-
-- solución de norma mínima, si hay muchas soluciones
-- mejor aproximación de mínimos cuadrados, si no hay solución exacta
-
-## Ejemplo: regresión lineal
-
-```python
-A = np.column_stack([np.ones(n), x])
-beta = np.linalg.pinv(A) @ y
-```
-
-<div class="flow">
-<div class="box">datos con ruido</div><div class="arrow">→</div>
-<div class="box">sistema sobredeterminado</div><div class="arrow">→</div>
-<div class="box">pseudoinversa</div><div class="arrow">→</div>
-<div class="box">mejor recta</div>
-</div>
+![](image/Moore_Penrose_Pseudoinverse.png)
 
 <div class="lab-button">[Abrir laboratorio 2.9](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/09_pseudoinverse.ipynb)</div>
 
-## 2.10 Operador traza
+## 2.10 El Operador Traza (Trace Operator) {.full-image-slide}
 
-## Traza = suma de la diagonal
-
-$$\operatorname{Tr}(A)=\sum_i A_{i,i}$$
-
-```python
-np.trace(A)
-```
-
-Una identidad útil:
-
-$$\|A\|_F=\sqrt{\operatorname{Tr}(AA^T)}$$
-
-## ¿Por qué importa?
-
-La traza permite escribir de forma compacta expresiones de:
-
-- normas
-- varianza y covarianza
-- derivaciones matriciales
-- objetivos de optimización
-
-Propiedad útil:
-
-$$\operatorname{Tr}(AB)=\operatorname{Tr}(BA)$$
-
-cuando las dimensiones permiten ambos productos.
+![](image/Trace_Operator.png)
 
 <div class="lab-button">[Abrir laboratorio 2.10](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/10_trace_operator.ipynb)</div>
 
-## 2.11 Determinante
-
-## Determinante = factor de cambio de volumen
-
-Para una transformación lineal $A$:
-
-- $|\det(A)|>1$ → expande volumen
-- $0<|\det(A)|<1$ → contrae volumen
-- $\det(A)=0$ → colapsa al menos una dimensión
-
-```python
-np.linalg.det(A)
-```
-
-## El caso singular
-
-```text
-A = [[1,2],
-     [2,4]]
-```
-
-$$\det(A)=0$$
-
-La transformación aplasta un plano sobre una línea.
-
-Eso conecta con:
-
-- no invertibilidad
-- dependencia lineal
-- rango insuficiente
+## 2.11 Determinante {.full-image-slide}
+![](image/Determinante.png)
 
 <div class="lab-button">[Abrir laboratorio 2.11](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/11_determinant.ipynb)</div>
 
-## 2.12 Ejemplo: Principal Components Analysis (PCA)
+## 2.12 Ejemplo: Principal Components Analysis (PCA) {.full-image-slide}
 
-## El problema de PCA
-
-Tenemos datos con muchas dimensiones y queremos una representación más compacta que pierda la menor información posible.
-
-<div class="flow">
-<div class="box">784 píxeles</div><div class="arrow">→</div>
-<div class="box">PCA</div><div class="arrow">→</div>
-<div class="box">20 componentes</div><div class="arrow">→</div>
-<div class="box">reconstrucción</div>
-</div>
-
-## PCA en una frase
-
-> **Encuentra nuevas direcciones ortogonales ordenadas por cuánta variación explican.**
-
-Conceptualmente:
-
-1. centrar los datos
-2. medir covarianza
-3. encontrar direcciones principales
-4. ordenar por importancia
-5. proyectar a menos dimensiones
-
-## MNIST: 784 → 2
-
-```python
-X = x_train[:5000].reshape(5000, -1) / 255.0
-
-pca = PCA(n_components=2)
-Z = pca.fit_transform(X)
-
-print(Z.shape)
-# (5000, 2)
-```
-
-Ahora podemos **visualizar** en un plano datos que originalmente tenían 784 dimensiones.
-
-## MNIST: 784 → 20 → 784
-
-```python
-pca20 = PCA(n_components=20)
-Z20   = pca20.fit_transform(X)
-X_rec = pca20.inverse_transform(Z20)
-```
-
-Preguntas para el grupo:
-
-- ¿el dígito sigue siendo reconocible?
-- ¿cuánto se redujo la representación?
-- ¿qué información se perdió?
-
-## PCA como puente conceptual
-
-<div class="flow">
-<div class="box">datos de alta dimensión</div><div class="arrow">→</div>
-<div class="box">representación compacta</div><div class="arrow">→</div>
-<div class="box">estructura latente</div>
-</div>
-
-PCA no es un LLM ni una red profunda, pero prepara una intuición fundamental:
-
-> **Aprender buenas representaciones puede ser tan importante como aprender la predicción final.**
+![](image/PCA.png)
 
 <div class="lab-button">[Abrir laboratorio 2.12](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/12_pca.ipynb)</div>
-
-## Laboratorio transversal: CPU, GPU y frameworks
 
 ## El álgebra no cambia; cambia dónde se ejecuta
 
@@ -817,84 +362,6 @@ PCA no es un LLM ni una red profunda, pero prepara una intuición fundamental:
       NumPy      TensorFlow      PyTorch
        CPU        CPU / GPU       CPU / GPU
 ```
-
-## TensorFlow: dispositivo administrado por el runtime
-
-```python
-A_tf = tf.constant(A)
-B_tf = tf.constant(B)
-C_tf = tf.matmul(A_tf, B_tf)
-
-print(C_tf.device)
-```
-
-## PyTorch: movimiento explícito
-
-```python
-device = "cuda" if torch.cuda.is_available() else "cpu"
-
-A_t = torch.from_numpy(A).to(device)
-B_t = torch.from_numpy(B).to(device)
-C_t = A_t @ B_t
-```
-
-> Para comprender GPU, primero comprender **shape + operación + dispositivo**.
-
-## ¿Qué debe observar el estudiante?
-
-No buscamos una “carrera de velocidad” perfecta.
-
-Buscamos responder:
-
-1. ¿el resultado tiene la misma forma?
-2. ¿en qué dispositivo está el tensor?
-3. ¿qué cambia al activar GPU en Colab?
-4. ¿qué API resulta más explícita?
-5. ¿qué operaciones se benefician de paralelismo?
-
-<div class="lab-button">[Abrir laboratorio CPU/GPU](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/notebooks/13_cpu_gpu_frameworks.ipynb)</div>
-
-## Mapa final
-
-## Del capítulo a una red neuronal
-
-<div class="flow">
-<div class="box">Tensores<br><span class="small">2.1</span></div><div class="arrow">→</div>
-<div class="box">Matmul<br><span class="small">2.2</span></div><div class="arrow">→</div>
-<div class="box">Rango / normas<br><span class="small">2.3–2.6</span></div><div class="arrow">→</div>
-<div class="box">Eigen / SVD<br><span class="small">2.7–2.8</span></div><div class="arrow">→</div>
-<div class="box">PCA<br><span class="small">2.12</span></div>
-</div>
-
-<div class="flow">
-<div class="box">entrada</div><div class="arrow">→</div>
-<div class="box">representación</div><div class="arrow">→</div>
-<div class="box">transformaciones</div><div class="arrow">→</div>
-<div class="box">representación útil</div><div class="arrow">→</div>
-<div class="box">predicción</div>
-</div>
-
-## Cuatro datasets, una conclusión
-
-<div class="kpi-grid">
-<div class="kpi"><div class="num">Random</div><div class="label">tablas y matrices</div></div>
-<div class="kpi"><div class="num">MNIST</div><div class="label">imágenes 28×28 y PCA/SVD</div></div>
-<div class="kpi"><div class="num">ImageNet</div><div class="label">RGB, channels y batch</div></div>
-<div class="kpi"><div class="num">IMDB</div><div class="label">texto → tokens → tensor</div></div>
-</div>
-
-> **Distintos dominios. La misma infraestructura matemática.**
-
-## Preguntas de comprobación
-
-1. ¿Por qué una imagen RGB necesita un eje adicional respecto a MNIST?
-2. ¿Qué representa el primer número de `(32, 224, 224, 3)`?
-3. ¿Por qué `A @ B` no es lo mismo que `A * B`?
-4. ¿Qué significa que una matriz tenga rango menor que su número de columnas?
-5. ¿Qué mide una norma?
-6. ¿Qué conserva SVD cuando hacemos una aproximación de bajo rango?
-7. ¿Qué intenta conservar PCA al reducir dimensiones?
-
 ## Repositorio y laboratorios
 
 **Estructura preparada para GitHub Pages:**
@@ -926,7 +393,6 @@ URL prevista:
 
 <div class="small muted">Contenido pedagógico original basado en los conceptos del capítulo; no reproduce el texto completo del libro.</div>
 
-## Gracias
 ## La idea para llevarse
 
 > **Deep learning trabaja con representaciones. El álgebra lineal nos da el lenguaje para describirlas, transformarlas, medirlas y comprimirlas.**
