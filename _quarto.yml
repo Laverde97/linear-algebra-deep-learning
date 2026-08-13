@@ -1,14 +1,29 @@
 project:
-  type: default
+  type: website
   output-dir: _site
+  render:
+    - index.qmd
+    - en/slides/index.qmd
+    - es/slides/index.qmd
+
+website:
+  title: "Linear Algebra / Álgebra lineal"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home / Inicio
+      - href: en/slides/index.qmd
+        text: English
+      - href: es/slides/index.qmd
+        text: Español
 
 execute:
   freeze: auto
 
-bibliography: references.bib
-
 resources:
-  - notebooks/**
+  - en/exercises/**
+  - es/exercises/**
+  - shared/**
 
 format:
   html:

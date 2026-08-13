@@ -1,12 +1,12 @@
 # Publicación en GitHub Pages
 
-Repositorio preparado para: `Laverde97/linear-algebra-deep-learning-quarto`
+Repositorio preparado para: `Laverde97/linear-algebra-deep-learning`
 
 ## 1. Crear el repositorio
 
 En GitHub, crear un repositorio público llamado:
 
-`linear-algebra-deep-learning-quarto`
+`linear-algebra-deep-learning`
 
 ## 2. Subir el proyecto
 
@@ -15,7 +15,7 @@ git init
 git add .
 git commit -m "Initial Quarto linear algebra lecture"
 git branch -M main
-git remote add origin https://github.com/Laverde97/linear-algebra-deep-learning-quarto.git
+git remote add origin https://github.com/Laverde97/linear-algebra-deep-learning.git
 git push -u origin main
 ```
 
@@ -37,10 +37,10 @@ A partir de ahí, el workflow `.github/workflows/publish.yml` vuelve a publicar 
 
 La URL esperada será:
 
-`https://laverde97.github.io/linear-algebra-deep-learning-quarto/`
+`https://laverde97.github.io/linear-algebra-deep-learning/`
 
 ## 5. Probar localmente
 
 ```bash
-quarto preview index.qmd
+quarto preview
 ```
