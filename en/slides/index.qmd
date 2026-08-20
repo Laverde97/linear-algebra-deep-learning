@@ -50,7 +50,7 @@ bibliography: ../../shared/references.bib
 <div class="flow">
   <div class="box">Real-world data</div><div class="arrow">→</div>
   <div class="box">Numbers</div><div class="arrow">→</div>
-  <div class="box">Tensores</div><div class="arrow">→</div>
+  <div class="box">Tensors</div><div class="arrow">→</div>
   <div class="box">Operations</div><div class="arrow">→</div>
   <div class="box">AI model</div>
 </div>
@@ -97,7 +97,7 @@ By the end, learners will be able to:
 45 min
 :::
 ::: {.label}
-2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA
+2.8–2.12 · SVD, pseudoinverse, trace, determinant, PCA
 :::
 ::::
 
@@ -113,7 +113,7 @@ Colab · datasets + frameworks + CPU/GPU
 :::::
 
 ::: {.small .muted .center}
-**+ 20 min** distribuidos en questions, transitions, and a short break.
+**+ 20 min** spread across questions, transitions, and a short break.
 :::
 
 ## 2.1 Scalars, vectors, matrices, and tensors
@@ -251,7 +251,7 @@ A <span>scalar</span> <strong>=</strong> one value
 
 | Object | Simple explanation | Data example | Typical shape | Tensor dimension / rank |
 |---|---|---|---|---|
-| **Escalar** | one number | age | `()` | **Tensor 0D** |
+| **Scalar** | one number | age | `()` | **Tensor 0D** |
 | **Vector** | ordered list | one person | `(4,)` | **Tensor 1D** |
 | **Matrix** | 2D table | 100 people × 4 variables | `(100, 4)` | **Tensor 2D** |
 | **Tensor 3D** | array with 3 axes | RGB image | `(224, 224, 3)` | **Tensor 3D** |
@@ -269,13 +269,13 @@ In modern frameworks, tensor is the general term for n-dimensional arrays.
 A scalar can be viewed as a rank-0 tensor.
 
 Explain the progression:
-- Escalar → tensor 0D
+- Scalar → tensor 0D
 - Vector → tensor 1D
 - Matrix → tensor 2D
 - RGB image → tensor 3D
 - Batch of images → tensor 4D
 - Video → tensor 4D
-- Lote de videos → tensor 5D
+- Batch of videos → tensor 5D
 :::
 
 ## Broadcasting {.full-image-slide}
@@ -304,7 +304,7 @@ Explain the progression:
 
 <div class="lab-button">[Open lab 2.4](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/04_linear_dependence_span.ipynb)</div>
 
-## 2.5 Normas {.full-image-slide}
+## 2.5 Norms {.full-image-slide}
 
 ![](../../en/images/Norms.png)
 
@@ -316,7 +316,7 @@ Explain the progression:
 
 <div class="lab-button">[Open lab 2.6](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/06_special_matrices_vectors.ipynb)</div>
 
-## 2.7 Eigendecomposition (Eigendecomposition) {.full-image-slide}
+## 2.7 Eigendecomposition {.full-image-slide}
 
 ![](../../en/images/Eigendecomposition.png)
 
@@ -334,7 +334,7 @@ Explain the progression:
 
 <div class="lab-button">[Open lab 2.9](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/09_pseudoinverse.ipynb)</div>
 
-## 2.10 The Trace Operator (Trace Operator) {.full-image-slide}
+## 2.10 The Trace Operator {.full-image-slide}
 
 ![](../../en/images/Trace_Operator.png)
 

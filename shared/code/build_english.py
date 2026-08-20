@@ -46,8 +46,10 @@ REPLACEMENTS = {
     "Abrir laboratorio": "Open lab", "Multiplicación de Matrices y Vectores": "Matrix and Vector Multiplication",
     "Matrices identidad e inversa": "Identity and Inverse Matrices", "Dependencia lineal y span": "Linear Dependence and Span",
     "Tipos especiales de matrices y vectores": "Special Types of Matrices and Vectors",
+    "Descomposición en autovalores (Eigendecomposition)": "Eigendecomposition",
     "Descomposición en autovalores": "Eigendecomposition", "Descomposición en valores singulares": "Singular Value Decomposition",
-    "Pseudoinversa de Moore–Penrose": "Moore–Penrose Pseudoinverse", "El Operador Traza": "The Trace Operator",
+    "Pseudoinversa de Moore–Penrose": "Moore–Penrose Pseudoinverse",
+    "El Operador Traza (Trace Operator)": "The Trace Operator", "El Operador Traza": "The Trace Operator",
     "Determinante": "Determinant", "Ejemplo: Principal Components Analysis": "Example: Principal Components Analysis",
     "El álgebra no cambia; cambia dónde se ejecuta": "The algebra stays the same; where it runs changes",
     "misma operación": "same operation", "Repositorio y laboratorios": "Repository and labs", "Estructura preparada para GitHub Pages:": "Structure prepared for GitHub Pages:",
@@ -120,6 +122,16 @@ REPLACEMENTS = {
     "ImageNet-v2 usa el mismo espacio de 1.000 clases que ImageNet2012 y contiene 10.000 imágenes. **Advertencia:** la configuración por defecto ronda 1.18 GiB de descarga, por eso no se ejecuta por defecto en una clase corta.": "ImageNet-v2 uses the same 1,000-class space as ImageNet2012 and contains 10,000 images. **Warning:** the default configuration downloads about 1.18 GiB, so it is not run by default in a short class.",
     "Una operación muy común en deep learning: sumar un vector a cada fila de una matriz sin copiarlo manualmente.": "A common deep learning operation: adding a vector to every row of a matrix without copying it manually.",
     "> La IA no “ve” fotografías, palabras o personas como nosotros. Ve **estructuras numéricas con forma**. El tensor es el contenedor general que permite organizar esas estructuras.": "> AI does not ‘see’ photographs, words, or people as we do. It sees **shaped numerical structures**. A tensor is the general container used to organize those structures.",
+    "Escalar": "Scalar", "Lote de videos": "Batch of videos", "Normas": "Norms", "Tensores": "Tensors",
+    "2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA": "2.8–2.12 · SVD, pseudoinverse, trace, determinant, PCA",
+    "distribuidos en": "spread across",
+    "Regla de lectura de formas": "Shape reading rule",
+    "En Colab puedes activar GPU en **Runtime > Change runtime type > T4 GPU**.": "In Colab, you can enable a GPU under **Runtime > Change runtime type > T4 GPU**.",
+    "Dependencia lineal y espacio generado (span)": "Linear dependence and span",
+    "autovalores y autovectores": "eigenvalues and eigenvectors",
+    "Apéndice · Tensores en CPU/GPU: NumPy, TensorFlow y PyTorch": "Appendix · Tensors on CPU/GPU: NumPy, TensorFlow, and PyTorch",
+    "Objetivo": "Goal",
+    "Si existe `A⁻¹`, entonces `A⁻¹A = I`.": "If `A⁻¹` exists, then `A⁻¹A = I`.",
 }
 
 
@@ -174,6 +186,14 @@ CODE_REPLACEMENTS = {
     "Arriba: original | Abajo: reconstrucción PCA (20 componentes)": "Top: original | Bottom: PCA reconstruction (20 components)",
     "Área escalada por": "Area scaled by", "Autovectores de la matriz de covarianza": "Eigenvectors of the covariance matrix",
     "Pesos:": "Weights:", "label='transformado'": "label='transformed'",
+    "Etiqueta:": "Label:", "resultado:": "result:", "Traza:": "Trace:", "Suma diagonal:": "Diagonal sum:",
+    "Autovectores (columnas):": "Eigenvectors (columns):", "Autovalores:": "Eigenvalues:", "Covarianza:": "Covariance:",
+    "Reducido:": "Reduced:", "Varianza explicada total:": "Total explained variance:", "Varianza explicada:": "Explained variance:",
+    "MNIST proyectado a 2 componentes principales": "MNIST projected onto 2 principal components",
+    "de varianza → {k} componentes": "of variance → {k} components",
+    "n componentes": "n components", "varianza acumulada": "cumulative variance",
+    "label='ajuste'": "label='fit'",
+    "Combinaciones lineales de dos vectores independientes": "Linear combinations of two independent vectors",
 }
 
 
