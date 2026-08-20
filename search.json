@@ -193,7 +193,7 @@
     "href": "en/slides/index.html#the-question-that-guides-the-class",
     "title": "Linear Algebra for Deep Learning",
     "section": "The question that guides the class",
-    "text": "The question that guides the class\n\nHow does a computer turn numbers, images, and text into mathematical objects that an AI model can process?\n\n\n\nReal-world data\n\n\n→\n\n\nNumbers\n\n\n→\n\n\nTensores\n\n\n→\n\n\nOperations\n\n\n→\n\n\nAI model\n\n\n\nDo not start with formulas. Ask the group, ‘What does a computer see when we show it a photo?’ Guide them toward the idea of numerical representation."
+    "text": "The question that guides the class\n\nHow does a computer turn numbers, images, and text into mathematical objects that an AI model can process?\n\n\n\nReal-world data\n\n\n→\n\n\nNumbers\n\n\n→\n\n\nTensors\n\n\n→\n\n\nOperations\n\n\n→\n\n\nAI model\n\n\n\nDo not start with formulas. Ask the group, ‘What does a computer see when we show it a photo?’ Guide them toward the idea of numerical representation."
   },
   {
     "objectID": "en/slides/index.html#learning-objectives",
@@ -207,7 +207,7 @@
     "href": "en/slides/index.html#three-hour-roadmap",
     "title": "Linear Algebra for Deep Learning",
     "section": "Three-hour roadmap",
-    "text": "Three-hour roadmap\n\n\n\n45 min\n\n\n2.1–2.4 · objects, products, inverse, span\n\n\n\n\n35 min\n\n\n2.5–2.7 · norms, special matrices, eigen\n\n\n\n\n45 min\n\n\n2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA\n\n\n\n\n35 min\n\n\nColab · datasets + frameworks + CPU/GPU\n\n\n\n\n+ 20 min distribuidos en questions, transitions, and a short break."
+    "text": "Three-hour roadmap\n\n\n\n45 min\n\n\n2.1–2.4 · objects, products, inverse, span\n\n\n\n\n35 min\n\n\n2.5–2.7 · norms, special matrices, eigen\n\n\n\n\n45 min\n\n\n2.8–2.12 · SVD, pseudoinverse, trace, determinant, PCA\n\n\n\n\n35 min\n\n\nColab · datasets + frameworks + CPU/GPU\n\n\n\n\n+ 20 min spread across questions, transitions, and a short break."
   },
   {
     "objectID": "en/slides/index.html#scalars-vectors-matrices-and-tensors",
@@ -249,7 +249,7 @@
     "href": "en/slides/index.html#four-objects-one-idea",
     "title": "Linear Algebra for Deep Learning",
     "section": "Four objects, one idea",
-    "text": "Four objects, one idea\n\n\n\n\n\n\n\n\n\n\nObject\nSimple explanation\nData example\nTypical shape\nTensor dimension / rank\n\n\n\n\nEscalar\none number\nage\n()\nTensor 0D\n\n\nVector\nordered list\none person\n(4,)\nTensor 1D\n\n\nMatrix\n2D table\n100 people × 4 variables\n(100, 4)\nTensor 2D\n\n\nTensor 3D\narray with 3 axes\nRGB image\n(224, 224, 3)\nTensor 3D\n\n\nTensor 4D\narray with 4 axes\nbatch of RGB images\n(32, 224, 224, 3)\nTensor 4D\n\n\nTensor 5D\narray with 5 axes\nbatch of videos\n(8, 30, 224, 224, 3)\nTensor 5D\n\n\nTensor 6D\narray with 6 axes\nbatch of video sequences\n(4, 10, 30, 224, 224, 3)\nTensor 6D\n\n\n\n\n\nAvoid saying that tensor ‘always means 3D’.\nIn modern frameworks, tensor is the general term for n-dimensional arrays.\nA scalar can be viewed as a rank-0 tensor.\nExplain the progression: - Escalar → tensor 0D - Vector → tensor 1D - Matrix → tensor 2D - RGB image → tensor 3D - Batch of images → tensor 4D - Video → tensor 4D - Lote de videos → tensor 5D"
+    "text": "Four objects, one idea\n\n\n\n\n\n\n\n\n\n\nObject\nSimple explanation\nData example\nTypical shape\nTensor dimension / rank\n\n\n\n\nScalar\none number\nage\n()\nTensor 0D\n\n\nVector\nordered list\none person\n(4,)\nTensor 1D\n\n\nMatrix\n2D table\n100 people × 4 variables\n(100, 4)\nTensor 2D\n\n\nTensor 3D\narray with 3 axes\nRGB image\n(224, 224, 3)\nTensor 3D\n\n\nTensor 4D\narray with 4 axes\nbatch of RGB images\n(32, 224, 224, 3)\nTensor 4D\n\n\nTensor 5D\narray with 5 axes\nbatch of videos\n(8, 30, 224, 224, 3)\nTensor 5D\n\n\nTensor 6D\narray with 6 axes\nbatch of video sequences\n(4, 10, 30, 224, 224, 3)\nTensor 6D\n\n\n\n\n\nAvoid saying that tensor ‘always means 3D’.\nIn modern frameworks, tensor is the general term for n-dimensional arrays.\nA scalar can be viewed as a rank-0 tensor.\nExplain the progression: - Scalar → tensor 0D - Vector → tensor 1D - Matrix → tensor 2D - RGB image → tensor 3D - Batch of images → tensor 4D - Video → tensor 4D - Batch of videos → tensor 5D"
   },
   {
     "objectID": "en/slides/index.html#broadcasting",
@@ -280,11 +280,11 @@
     "text": "2.4 Linear Dependence and Span\n\n\nOpen lab 2.4"
   },
   {
-    "objectID": "en/slides/index.html#normas",
-    "href": "en/slides/index.html#normas",
+    "objectID": "en/slides/index.html#norms",
+    "href": "en/slides/index.html#norms",
     "title": "Linear Algebra for Deep Learning",
-    "section": "2.5 Normas",
-    "text": "2.5 Normas\n\n\nOpen lab 2.5"
+    "section": "2.5 Norms",
+    "text": "2.5 Norms\n\n\nOpen lab 2.5"
   },
   {
     "objectID": "en/slides/index.html#special-types-of-matrices-and-vectors",
@@ -294,11 +294,11 @@
     "text": "2.6 Special Types of Matrices and Vectors\n\n\nOpen lab 2.6"
   },
   {
-    "objectID": "en/slides/index.html#eigendecomposition-eigendecomposition",
-    "href": "en/slides/index.html#eigendecomposition-eigendecomposition",
+    "objectID": "en/slides/index.html#eigendecomposition",
+    "href": "en/slides/index.html#eigendecomposition",
     "title": "Linear Algebra for Deep Learning",
-    "section": "2.7 Eigendecomposition (Eigendecomposition)",
-    "text": "2.7 Eigendecomposition (Eigendecomposition)\n\n\nOpen lab 2.7"
+    "section": "2.7 Eigendecomposition",
+    "text": "2.7 Eigendecomposition\n\n\nOpen lab 2.7"
   },
   {
     "objectID": "en/slides/index.html#singular-value-decomposition-svd",
@@ -315,11 +315,11 @@
     "text": "2.9 Moore–Penrose Pseudoinverse\n\n\nOpen lab 2.9"
   },
   {
-    "objectID": "en/slides/index.html#the-trace-operator-trace-operator",
-    "href": "en/slides/index.html#the-trace-operator-trace-operator",
+    "objectID": "en/slides/index.html#the-trace-operator",
+    "href": "en/slides/index.html#the-trace-operator",
     "title": "Linear Algebra for Deep Learning",
-    "section": "2.10 The Trace Operator (Trace Operator)",
-    "text": "2.10 The Trace Operator (Trace Operator)\n\n\nOpen lab 2.10"
+    "section": "2.10 The Trace Operator",
+    "text": "2.10 The Trace Operator\n\n\nOpen lab 2.10"
   },
   {
     "objectID": "en/slides/index.html#determinant",
