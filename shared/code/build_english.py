@@ -120,13 +120,43 @@ REPLACEMENTS = {
     "ImageNet-v2 usa el mismo espacio de 1.000 clases que ImageNet2012 y contiene 10.000 imágenes. **Advertencia:** la configuración por defecto ronda 1.18 GiB de descarga, por eso no se ejecuta por defecto en una clase corta.": "ImageNet-v2 uses the same 1,000-class space as ImageNet2012 and contains 10,000 images. **Warning:** the default configuration downloads about 1.18 GiB, so it is not run by default in a short class.",
     "Una operación muy común en deep learning: sumar un vector a cada fila de una matriz sin copiarlo manualmente.": "A common deep learning operation: adding a vector to every row of a matrix without copying it manually.",
     "> La IA no “ve” fotografías, palabras o personas como nosotros. Ve **estructuras numéricas con forma**. El tensor es el contenedor general que permite organizar esas estructuras.": "> AI does not ‘see’ photographs, words, or people as we do. It sees **shaped numerical structures**. A tensor is the general container used to organize those structures.",
-    "Vectors.png": "Vectores.png", "Identidad_Inverse.png": "Identidad_Inversa.png", "Determinant.png": "Determinante.png",
 }
 
 
 def translate(text: str) -> str:
     for source, target in sorted(REPLACEMENTS.items(), key=lambda item: len(item[0]), reverse=True):
         text = text.replace(source, target)
+    return text
+
+
+# English slides use the translated images under en/images/ instead of the
+# Spanish originals under shared/images/. Mapping is explicit (Spanish
+# filename -> English filename) and applied only to shared/images/ path
+# references, so it cannot affect unrelated text.
+IMAGE_PATH_MAP = {
+    "SCALAR_VECTOR_MATRIZ_TENSOR.png": "SCALAR_VECTOR_MATRIX_TENSOR.png",
+    "Vectores.png": "Vectors.png",
+    "Matrices.png": "Matrices.png",
+    "Dim_Tensores.png": "Dim_Tensors.png",
+    "Broadcasting.png": "Broadcasting.png",
+    "Multi_Vect_matri.png": "Multi_Vect_Matrix.png",
+    "Identidad_Inversa.png": "Identity_Inverse.png",
+    "Dependencia_Lineal.png": "Linear_Dependence.png",
+    "Norms.png": "Norms.png",
+    "Tipos_Especiales_M_V.png": "Special_Types_M_V.png",
+    "Eigendecomposition.png": "Eigendecomposition.png",
+    "SVD.png": "SVD.png",
+    "Moore_Penrose_Pseudoinverse.png": "Moore_Penrose_Pseudoinverse.png",
+    "Trace_Operator.png": "Trace_Operator.png",
+    "Determinante.png": "Determinant.png",
+    "PCA.png": "PCA.png",
+    "Tensor.png": "Tensor.png",
+}
+
+
+def translate_image_paths(text: str) -> str:
+    for es_name, en_name in IMAGE_PATH_MAP.items():
+        text = text.replace(f"shared/images/{es_name}", f"en/images/{en_name}")
     return text
 
 
@@ -156,11 +186,12 @@ def translate_code(text: str) -> str:
 def main() -> None:
     source = ROOT / "es/slides/index.qmd"
     target = ROOT / "en/slides/index.qmd"
-    slides = translate(source.read_text(encoding="utf-8"))
-    # Asset names are stable shared identifiers and must not be translated.
-    slides = slides.replace("Vectors.png", "Vectores.png")
-    slides = slides.replace("Identidad_Inverse.png", "Identidad_Inversa.png")
-    slides = slides.replace("Determinant.png", "Determinante.png")
+    # Image paths are mapped before word translation: several Spanish image
+    # filenames (e.g. Vectores.png, Identidad_Inversa.png) share substrings
+    # with translated words (Vectores, Inversa), so mapping paths first
+    # avoids the word translation corrupting the filename mid-path.
+    slides = translate_image_paths(source.read_text(encoding="utf-8"))
+    slides = translate(slides)
     target.write_text(slides, encoding="utf-8")
 
     for source in sorted((ROOT / "es/exercises").glob("*.ipynb")):
