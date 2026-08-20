@@ -2,7 +2,7 @@
 
 Esta versión contiene un taller de tres horas basado en el Capítulo 2 de *Deep Learning* de Goodfellow, Bengio y Courville.
 
-- [Ver las diapositivas](slides/index.qmd)
+- [Ver las diapositivas](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/)
 - [Explorar los ejercicios](exercises/)
 - [Instalar las dependencias compartidas](../shared/requirements.txt)
 - [Leer la guía docente](GUIA_DOCENTE.md)
