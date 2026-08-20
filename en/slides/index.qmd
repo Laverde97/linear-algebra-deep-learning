@@ -50,7 +50,7 @@ bibliography: ../../shared/references.bib
 <div class="flow">
   <div class="box">Real-world data</div><div class="arrow">→</div>
   <div class="box">Numbers</div><div class="arrow">→</div>
-  <div class="box">Tensores</div><div class="arrow">→</div>
+  <div class="box">Tensors</div><div class="arrow">→</div>
   <div class="box">Operations</div><div class="arrow">→</div>
   <div class="box">AI model</div>
 </div>
@@ -97,7 +97,7 @@ By the end, learners will be able to:
 45 min
 :::
 ::: {.label}
-2.8–2.12 · SVD, pseudoinversa, traza, determinante, PCA
+2.8–2.12 · SVD, pseudoinverse, trace, determinant, PCA
 :::
 ::::
 
@@ -113,14 +113,14 @@ Colab · datasets + frameworks + CPU/GPU
 :::::
 
 ::: {.small .muted .center}
-**+ 20 min** distribuidos en questions, transitions, and a short break.
+**+ 20 min** spread across questions, transitions, and a short break.
 :::
 
 ## 2.1 Scalars, vectors, matrices, and tensors
 
 <div class="center">
 
-![](../../shared/images/SCALAR_VECTOR_MATRIZ_TENSOR.png){width="75%"}
+![](../../en/images/SCALAR_VECTOR_MATRIX_TENSOR.png){width="75%"}
 
 </div>
 
@@ -229,13 +229,13 @@ A <span>scalar</span> <strong>=</strong> one value
 
 ## Vectors {.image-slide}
 
-![](../../shared/images/Vectores.png){.vector-full-image}
+![](../../en/images/Vectors.png){.vector-full-image}
 
 ## Matrices {.matrix-image-slide}
 
 <div class="matrix-image-container">
 
-![](../../shared/images/Matrices.png)
+![](../../en/images/Matrices.png)
 
 </div>
 
@@ -243,7 +243,7 @@ A <span>scalar</span> <strong>=</strong> one value
 
 <div class="vector-image-container">
 
-![](../../shared/images/Vectores.png)
+![](../../en/images/Vectors.png)
 
 </div>
 
@@ -251,7 +251,7 @@ A <span>scalar</span> <strong>=</strong> one value
 
 | Object | Simple explanation | Data example | Typical shape | Tensor dimension / rank |
 |---|---|---|---|---|
-| **Escalar** | one number | age | `()` | **Tensor 0D** |
+| **Scalar** | one number | age | `()` | **Tensor 0D** |
 | **Vector** | ordered list | one person | `(4,)` | **Tensor 1D** |
 | **Matrix** | 2D table | 100 people × 4 variables | `(100, 4)` | **Tensor 2D** |
 | **Tensor 3D** | array with 3 axes | RGB image | `(224, 224, 3)` | **Tensor 3D** |
@@ -259,7 +259,7 @@ A <span>scalar</span> <strong>=</strong> one value
 | **Tensor 5D** | array with 5 axes | batch of videos | `(8, 30, 224, 224, 3)` | **Tensor 5D** |
 | **Tensor 6D** | array with 6 axes | batch of video sequences | `(4, 10, 30, 224, 224, 3)` | **Tensor 6D** |
 
-![](../../shared/images/Dim_Tensores.png){fig-align="center" width="55%"}
+![](../../en/images/Dim_Tensors.png){fig-align="center" width="55%"}
 
 ::: {.notes}
 Avoid saying that tensor ‘always means 3D’.
@@ -269,18 +269,18 @@ In modern frameworks, tensor is the general term for n-dimensional arrays.
 A scalar can be viewed as a rank-0 tensor.
 
 Explain the progression:
-- Escalar → tensor 0D
+- Scalar → tensor 0D
 - Vector → tensor 1D
 - Matrix → tensor 2D
 - RGB image → tensor 3D
 - Batch of images → tensor 4D
 - Video → tensor 4D
-- Lote de videos → tensor 5D
+- Batch of videos → tensor 5D
 :::
 
 ## Broadcasting {.full-image-slide}
 
-![](../../shared/images/Broadcasting.png)
+![](../../en/images/Broadcasting.png)
 
 <div class="lab-button">[Open lab 2.1 in Colab](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/01_scalars_vectors_matrices_tensors.ipynb)</div>
 
@@ -288,66 +288,66 @@ Explain the progression:
 
 ## 2.2 Matrix and Vector Multiplication {.full-image-slide}
 
-![](../../shared/images/Multi_Vect_matri.png)
+![](../../en/images/Multi_Vect_Matrix.png)
 
 <div class="lab-button">[Open lab 2.2](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/02_multiplying_matrices_vectors.ipynb)</div>
 
 ## 2.3 Identity and Inverse Matrices {.full-image-slide}
 
-![](../../shared/images/Identidad_Inversa.png)
+![](../../en/images/Identity_Inverse.png)
 
 <div class="lab-button">[Open lab 2.3](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/03_identity_inverse_matrices.ipynb)</div>
 
 ## 2.4 Linear Dependence and Span {.full-image-slide}
 
-![](../../shared/images/Dependencia_Lineal.png)
+![](../../en/images/Linear_Dependence.png)
 
 <div class="lab-button">[Open lab 2.4](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/04_linear_dependence_span.ipynb)</div>
 
-## 2.5 Normas {.full-image-slide}
+## 2.5 Norms {.full-image-slide}
 
-![](../../shared/images/Norms.png)
+![](../../en/images/Norms.png)
 
 <div class="lab-button">[Open lab 2.5](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/05_norms.ipynb)</div>
 
 ## 2.6 Special Types of Matrices and Vectors {.full-image-slide}
 
-![](../../shared/images/Tipos_Especiales_M_V.png)
+![](../../en/images/Special_Types_M_V.png)
 
 <div class="lab-button">[Open lab 2.6](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/06_special_matrices_vectors.ipynb)</div>
 
-## 2.7 Eigendecomposition (Eigendecomposition) {.full-image-slide}
+## 2.7 Eigendecomposition {.full-image-slide}
 
-![](../../shared/images/Eigendecomposition.png)
+![](../../en/images/Eigendecomposition.png)
 
 <div class="lab-button">[Open lab 2.7](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/07_eigendecomposition.ipynb)</div>
 
 ## 2.8 Singular Value Decomposition (SVD) {.full-image-slide}
 
-![](../../shared/images/SVD.png)
+![](../../en/images/SVD.png)
 
 <div class="lab-button">[Open lab 2.8](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/08_svd.ipynb)</div>
 
 ## 2.9 Moore–Penrose Pseudoinverse {.full-image-slide}
 
-![](../../shared/images/Moore_Penrose_Pseudoinverse.png)
+![](../../en/images/Moore_Penrose_Pseudoinverse.png)
 
 <div class="lab-button">[Open lab 2.9](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/09_pseudoinverse.ipynb)</div>
 
-## 2.10 The Trace Operator (Trace Operator) {.full-image-slide}
+## 2.10 The Trace Operator {.full-image-slide}
 
-![](../../shared/images/Trace_Operator.png)
+![](../../en/images/Trace_Operator.png)
 
 <div class="lab-button">[Open lab 2.10](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/10_trace_operator.ipynb)</div>
 
 ## 2.11 Determinant {.full-image-slide}
-![](../../shared/images/Determinante.png)
+![](../../en/images/Determinant.png)
 
 <div class="lab-button">[Open lab 2.11](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/11_determinant.ipynb)</div>
 
 ## 2.12 Example: Principal Components Analysis (PCA) {.full-image-slide}
 
-![](../../shared/images/PCA.png)
+![](../../en/images/PCA.png)
 
 <div class="lab-button">[Open lab 2.12](https://colab.research.google.com/github/Laverde97/linear-algebra-deep-learning/blob/main/en/exercises/12_pca.ipynb)</div>
 
