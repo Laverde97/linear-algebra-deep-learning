@@ -2,7 +2,7 @@
 
 This version contains a three-hour workshop based on Chapter 2 of *Deep Learning* by Goodfellow, Bengio, and Courville.
 
-- [View the slides](slides/index.qmd)
+- [View the slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/)
 - [Browse the exercises](exercises/)
 - [Install the shared requirements](../shared/requirements.txt)
 - [Read the teaching guide](TEACHING_GUIDE.md)

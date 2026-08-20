@@ -4,8 +4,8 @@ Workshop materials are available in both English and Spanish. Choose a language:
 
 | Language / Idioma | Slides / Diapositivas | Exercises / Ejercicios | Guide / Guía |
 |---|---|---|---|
-| English | [Open slides](en/slides/index.qmd) | [Open exercises](en/exercises/) | [English README](en/README.md) |
-| Español | [Abrir diapositivas](es/slides/index.qmd) | [Abrir ejercicios](es/exercises/) | [README en español](es/README.md) |
+| English | [Open slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/) | [Open exercises](en/exercises/) | [English README](en/README.md) |
+| Español | [Abrir diapositivas](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/) | [Abrir ejercicios](es/exercises/) | [README en español](es/README.md) |
 
 ## Repository structure / Estructura
 
