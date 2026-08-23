@@ -4,7 +4,7 @@ Bilingual, hands-on review of the linear algebra behind machine learning, deep l
 
 Revisión bilingüe y práctica del álgebra lineal detrás del machine learning, el deep learning y los tensores — de escalares a PCA, basada en el Capítulo 2 de *Deep Learning* (Goodfellow, Bengio y Courville).
 
-## 🎯 Pre-Workshop Preparation / Preparación previa al taller
+## 🎯 Pre-Workshop Preparation 
 
 **Use these materials before attending the Tensors Workshop.** Each notebook takes roughly 10–15 minutes; working through all 14 takes about 2–3 hours total, and can be split across several sessions. Everything runs in Google Colab — no local install required.
 
@@ -29,14 +29,14 @@ Recommended order / Orden recomendado:
 | 12 | Principal Component Analysis (PCA) / Análisis de componentes principales |
 | Appendix / Apéndice | CPU/GPU frameworks: NumPy, TensorFlow, PyTorch |
 
-## Languages / Idiomas
+## Languages
 
 | | |
 |---|---|
 | 🇬🇧 **English** | [Slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/) · [Exercises](en/exercises/) · [English README](en/README.md) |
 | 🇪🇸 **Español** | [Diapositivas](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/) · [Ejercicios](es/exercises/) · [README en español](es/README.md) |
 
-## Slides / Diapositivas
+## Slides
 
 - 🇬🇧 [Open the English slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/)
 - 🇪🇸 [Abrir las diapositivas en español](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/)
@@ -47,7 +47,7 @@ Every exercise notebook opens directly in Google Colab — no setup needed beyon
 
 Todos los notebooks se abren directamente en Google Colab — no necesitas más preparación que el [notebook 00 de preparación](es/exercises/00_setup_colab.ipynb). Las tablas completas con enlaces a Colab por notebook están en [`en/README.md`](en/README.md) y [`es/README.md`](es/README.md).
 
-## Recommended topics before the Tensors Workshop / Temas recomendados antes del taller
+## Recommended topics before the Tensors Workshop 
 
 - Vectors and matrices / Vectores y matrices
 - Matrix multiplication / Multiplicación de matrices
