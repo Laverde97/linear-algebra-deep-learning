@@ -33,13 +33,13 @@ Recommended order / Orden recomendado:
 
 | | |
 |---|---|
-| 🇬🇧 **English** | [Slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/) · [Exercises](en/exercises/) · [English README](en/README.md) |
-| 🇪🇸 **Español** | [Diapositivas](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/) · [Ejercicios](es/exercises/) · [README en español](es/README.md) |
+| **English** | [Slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/) · [Exercises](en/exercises/) · [English README](en/README.md) |
+| **Español** | [Diapositivas](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/) · [Ejercicios](es/exercises/) · [README en español](es/README.md) |
 
 ## Slides
 
-- 🇬🇧 [Open the English slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/)
-- 🇪🇸 [Abrir las diapositivas en español](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/)
+- [Open the English slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/)
+- [Abrir las diapositivas en español](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/)
 
 ## Interactive exercises / notebooks
 
