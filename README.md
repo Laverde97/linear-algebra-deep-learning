@@ -1,4 +1,4 @@
-# Linear Algebra for Deep Learning / Álgebra lineal para Deep Learning
+# Linear Algebra for Deep Learning 
 
 Bilingual, hands-on review of the linear algebra behind machine learning, deep learning, and tensors — from scalars to PCA, based on Chapter 2 of *Deep Learning* (Goodfellow, Bengio & Courville).
 
