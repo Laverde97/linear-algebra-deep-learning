@@ -41,7 +41,7 @@ Recommended order / Orden recomendado:
 - [Open the English slides](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/)
 - [Abrir las diapositivas en español](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/)
 
-## Interactive exercises / notebooks
+## Interactive exercises 
 
 Every exercise notebook opens directly in Google Colab — no setup needed beyond the [00 setup notebook](en/exercises/00_setup_colab.ipynb). Full tables with per-notebook Colab links live in [`en/README.md`](en/README.md) and [`es/README.md`](es/README.md).
 
@@ -61,7 +61,7 @@ Todos los notebooks se abren directamente en Google Colab — no necesitas más 
 - PCA / Análisis de componentes principales
 - Matrix factorizations / Factorizaciones matriciales
 
-## 📐 SVD and Matrix Factorization / SVD y factorización de matrices
+## 📐 SVD and Matrix Factorization
 
 **Arriving from a blog post about SVD or matrix factorizations?** This section is for you. SVD and its relatives are core tools for:
 
