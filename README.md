@@ -12,7 +12,7 @@ Revisión bilingüe y práctica del álgebra lineal detrás del machine learning
 
 Recommended order / Orden recomendado:
 
-| # | Topic / Tema |
+| # | Topic |
 |---|---|
 | 00 | Google Colab setup / Preparación de Google Colab |
 | 1 | Scalars, vectors, matrices, and tensors / Escalares, vectores, matrices y tensores |
