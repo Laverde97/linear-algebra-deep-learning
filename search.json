@@ -165,14 +165,14 @@
     "href": "es/slides/index.html#fuentes-y-créditos",
     "title": "Álgebra lineal para Deep Learning",
     "section": "Fuentes y créditos",
-    "text": "Fuentes y créditos\n\nGoodfellow, I., Bengio, Y. & Courville, A. Deep Learning, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html\nQuarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/\nQuarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html\nMNIST via TensorFlow/Keras.\nIMDB Reviews via TensorFlow/Keras.\nImageNet-v2 documentation via TensorFlow Datasets; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.\n\n\nContenido pedagógico original basado en los conceptos del capítulo; no reproduce el texto completo del libro."
+    "text": "Fuentes y créditos\n\nGoodfellow, I., Bengio, Y. & Courville, A. Deep Learning, Chapter 2: Linear Algebra. MIT Press (Goodfellow et al. 2016). https://www.deeplearningbook.org/contents/linear_algebra.html\nQuarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/\nQuarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html\nMNIST via TensorFlow/Keras (LeCun et al. 1998).\nIMDB Reviews via TensorFlow/Keras (Maas et al. 2011).\nImageNet-v2 documentation via TensorFlow Datasets (Recht et al. 2019); for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.\n\n\nContenido pedagógico original basado en los conceptos del capítulo; no reproduce el texto completo del libro."
   },
   {
     "objectID": "es/slides/index.html#la-idea-para-llevarse",
     "href": "es/slides/index.html#la-idea-para-llevarse",
     "title": "Álgebra lineal para Deep Learning",
     "section": "La idea para llevarse",
-    "text": "La idea para llevarse\n\nDeep learning trabaja con representaciones. El álgebra lineal nos da el lenguaje para describirlas, transformarlas, medirlas y comprimirlas.\n\n\n\nEntender\n\n\n→\n\n\nEjecutar\n\n\n→\n\n\nVisualizar\n\n\n→\n\n\nConectar con IA"
+    "text": "La idea para llevarse\n\nDeep learning trabaja con representaciones. El álgebra lineal nos da el lenguaje para describirlas, transformarlas, medirlas y comprimirlas.\n\n\n\nEntender\n\n\n→\n\n\nEjecutar\n\n\n→\n\n\nVisualizar\n\n\n→\n\n\nConectar con IA\n\n\n\n\n\n\nGoodfellow, Ian, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press. https://www.deeplearningbook.org/.\n\n\nLeCun, Yann, Leon Bottou, Yoshua Bengio, and Patrick Haffner. 1998. “Gradient-Based Learning Applied to Document Recognition.” Proceedings of the IEEE 86 (11): 2278–324.\n\n\nMaas, Andrew L., Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. 2011. “Learning Word Vectors for Sentiment Analysis.” Proceedings of ACL.\n\n\nRecht, Benjamin, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar. 2019. “Do ImageNet Classifiers Generalize to ImageNet?” International Conference on Machine Learning."
   },
   {
     "objectID": "index.html",
@@ -354,13 +354,13 @@
     "href": "en/slides/index.html#sources-and-credits",
     "title": "Linear Algebra for Deep Learning",
     "section": "Sources and credits",
-    "text": "Sources and credits\n\nGoodfellow, I., Bengio, Y. & Courville, A. Deep Learning, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html\nQuarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/\nQuarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html\nMNIST via TensorFlow/Keras.\nIMDB Reviews via TensorFlow/Keras.\nImageNet-v2 documentation via TensorFlow Datasets; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.\n\n\nOriginal teaching content based on the chapter concepts; it does not reproduce the full text of the book."
+    "text": "Sources and credits\n\nGoodfellow, I., Bengio, Y. & Courville, A. Deep Learning, Chapter 2: Linear Algebra. MIT Press (Goodfellow et al. 2016). https://www.deeplearningbook.org/contents/linear_algebra.html\nQuarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/\nQuarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html\nMNIST via TensorFlow/Keras (LeCun et al. 1998).\nIMDB Reviews via TensorFlow/Keras (Maas et al. 2011).\nImageNet-v2 documentation via TensorFlow Datasets (Recht et al. 2019); for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.\n\n\nOriginal teaching content based on the chapter concepts; it does not reproduce the full text of the book."
   },
   {
     "objectID": "en/slides/index.html#key-takeaway",
     "href": "en/slides/index.html#key-takeaway",
     "title": "Linear Algebra for Deep Learning",
     "section": "Key takeaway",
-    "text": "Key takeaway\n\nDeep learning works with representations. Linear algebra gives us the language to describe, transform, measure, and compress them.\n\n\n\nUnderstand\n\n\n→\n\n\nRun\n\n\n→\n\n\nVisualize\n\n\n→\n\n\nConnect to AI"
+    "text": "Key takeaway\n\nDeep learning works with representations. Linear algebra gives us the language to describe, transform, measure, and compress them.\n\n\n\nUnderstand\n\n\n→\n\n\nRun\n\n\n→\n\n\nVisualize\n\n\n→\n\n\nConnect to AI\n\n\n\n\n\n\nGoodfellow, Ian, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press. https://www.deeplearningbook.org/.\n\n\nLeCun, Yann, Leon Bottou, Yoshua Bengio, and Patrick Haffner. 1998. “Gradient-Based Learning Applied to Document Recognition.” Proceedings of the IEEE 86 (11): 2278–324.\n\n\nMaas, Andrew L., Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. 2011. “Learning Word Vectors for Sentiment Analysis.” Proceedings of ACL.\n\n\nRecht, Benjamin, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar. 2019. “Do ImageNet Classifiers Generalize to ImageNet?” International Conference on Machine Learning."
   }
 ]

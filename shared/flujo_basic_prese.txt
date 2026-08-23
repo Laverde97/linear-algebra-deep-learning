@@ -1,9 +1,0 @@
-git add .
-git commit -m "Update presentation"
-git push
-quarto publish gh-pages index.qmd
-
-Actualizar README.md
-git add README.md
-git commit -m "Add GitHub Pages presentation link to README"
-git push
