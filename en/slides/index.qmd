@@ -385,12 +385,12 @@ Expected URL:
 
 ## Sources and credits {.smaller}
 
-- Goodfellow, I., Bengio, Y. & Courville, A. **Deep Learning**, Chapter 2: Linear Algebra. MIT Press. https://www.deeplearningbook.org/contents/linear_algebra.html
+- Goodfellow, I., Bengio, Y. & Courville, A. **Deep Learning**, Chapter 2: Linear Algebra. MIT Press [@goodfellow2016]. https://www.deeplearningbook.org/contents/linear_algebra.html
 - Quarto RevealJS documentation: https://quarto.org/docs/presentations/revealjs/
 - Quarto GitHub Pages publishing: https://quarto.org/docs/publishing/github-pages.html
-- MNIST via TensorFlow/Keras.
-- IMDB Reviews via TensorFlow/Keras.
-- ImageNet-v2 documentation via TensorFlow Datasets; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.
+- MNIST via TensorFlow/Keras [@lecun1998].
+- IMDB Reviews via TensorFlow/Keras [@maas2011].
+- ImageNet-v2 documentation via TensorFlow Datasets [@recht2019]; for the live class the notebook uses a lightweight ImageNet-format demonstration and leaves ImageNet-v2 as optional due to download size.
 
 <div class="small muted">Original teaching content based on the chapter concepts; it does not reproduce the full text of the book.</div>
 

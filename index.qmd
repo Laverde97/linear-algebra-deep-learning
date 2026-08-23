@@ -26,6 +26,6 @@ format:
 :::
 :::
 
-Shared images, styles, code samples, and dependencies are stored once in [`shared/`](shared/).
+Shared images, styles, code samples, and dependencies are stored once in [`shared/`](https://github.com/Laverde97/linear-algebra-deep-learning/tree/main/shared).
 
-Las imágenes, los estilos, los ejemplos de código y las dependencias se almacenan una sola vez en [`shared/`](shared/).
+Las imágenes, los estilos, los ejemplos de código y las dependencias se almacenan una sola vez en [`shared/`](https://github.com/Laverde97/linear-algebra-deep-learning/tree/main/shared).
