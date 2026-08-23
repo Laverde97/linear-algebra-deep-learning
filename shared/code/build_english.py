@@ -162,7 +162,6 @@ IMAGE_PATH_MAP = {
     "Trace_Operator.png": "Trace_Operator.png",
     "Determinante.png": "Determinant.png",
     "PCA.png": "PCA.png",
-    "Tensor.png": "Tensor.png",
 }
 
 
@@ -194,6 +193,22 @@ CODE_REPLACEMENTS = {
     "n componentes": "n components", "varianza acumulada": "cumulative variance",
     "label='ajuste'": "label='fit'",
     "Combinaciones lineales de dos vectores independientes": "Linear combinations of two independent vectors",
+    "Sistema:": "System:",
+    "Rango/ndim:": "Rank/ndim:",
+    "Primeros tokens:": "First tokens:",
+    "Sentimiento (0/1):": "Sentiment (0/1):",
+    "# OPCIONAL — descomenta si quieres descargar ImageNet-v2 completo": "# OPTIONAL — uncomment if you want to download the full ImageNet-v2",
+    "Rango:": "Rank:",
+    "Columnas:": "Columns:",
+    "Rango real:": "Actual rank:",
+    "Etiquetas:": "Labels:",
+    "Identidad:": "Identity:",
+    "Coeficientes [intercepto, pendiente]:": "Coefficients [intercept, slope]:",
+    "Coinciden:": "Match:",
+    "rango=": "rank=",
+    "Predicciones:": "Predictions:",
+    "Distancia L2:": "L2 distance:",
+    "Distancia L1:": "L1 distance:",
 }
 
 
