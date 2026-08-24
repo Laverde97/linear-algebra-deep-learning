@@ -42,8 +42,6 @@ Recommended order / Orden recomendado:
 
 Every exercise notebook opens directly in Google Colab — no setup needed beyond the [00 setup notebook](en/exercises/00_setup_colab.ipynb). Full tables with per-notebook Colab links live in [`en/README.md`](en/README.md) and [`es/README.md`](es/README.md).
 
-Todos los notebooks se abren directamente en Google Colab — no necesitas más preparación que el [notebook 00 de preparación](es/exercises/00_setup_colab.ipynb). Las tablas completas con enlaces a Colab por notebook están en [`en/README.md`](en/README.md) y [`es/README.md`](es/README.md).
-
 ## Recommended topics before the Tensors Workshop 
 
 - Vectors and matrices / Vectores y matrices
@@ -83,9 +81,7 @@ The matching slide sections are in the [English deck](https://laverde97.github.i
 
 This repository is meant to **complement**, not duplicate, in-depth blog coverage of SVD and matrix factorizations (such as Ravi Kalia's posts) — use it to build or refresh the linear-algebra prerequisites, then read the deeper material with the notation and intuition already in hand.
 
-Este repositorio busca **complementar**, no duplicar, publicaciones más profundas sobre SVD y factorización de matrices — úsalo para construir o repasar los prerrequisitos de álgebra lineal, y luego lee el material más avanzado con la notación y la intuición ya asimiladas.
-
-## Repository structure / Estructura
+## Repository structure 
 
 ```text
 .
@@ -102,8 +98,6 @@ Este repositorio busca **complementar**, no duplicar, publicaciones más profund
 ```
 
 The Quarto site publishes a bilingual landing page and both slide decks. Shared assets live in [`shared/`](https://github.com/Laverde97/linear-algebra-deep-learning/tree/main/shared) to avoid duplication.
-
-El sitio de Quarto publica una portada bilingüe y ambas presentaciones. Los recursos comunes están en [`shared/`](https://github.com/Laverde97/linear-algebra-deep-learning/tree/main/shared) para evitar duplicados.
 
 ## Local preview / Vista previa local
 
