@@ -106,5 +106,3 @@ quarto preview
 ```
 
 The notebooks can be opened directly from each language guide, run in Google Colab with no installation, or run locally with the dependencies in `shared/requirements.txt`.
-
-Los notebooks se pueden abrir desde la guía de cada idioma, ejecutar en Google Colab sin instalación, o ejecutar localmente con las dependencias de `shared/requirements.txt`.
