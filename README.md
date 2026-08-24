@@ -2,13 +2,10 @@
 
 Bilingual, hands-on review of the linear algebra behind machine learning, deep learning, and tensors — from scalars to PCA, based on Chapter 2 of *Deep Learning* (Goodfellow, Bengio & Courville).
 
-Revisión bilingüe y práctica del álgebra lineal detrás del machine learning, el deep learning y los tensores — de escalares a PCA, basada en el Capítulo 2 de *Deep Learning* (Goodfellow, Bengio y Courville).
-
 ## 🎯 Pre-Workshop Preparation 
 
 **Use these materials before attending the Tensors Workshop.** Each notebook takes roughly 10–15 minutes; working through all 14 takes about 2–3 hours total, and can be split across several sessions. Everything runs in Google Colab — no local install required.
 
-**Usa estos materiales antes de asistir al Taller de Tensores.** Cada notebook toma entre 10 y 15 minutos; completar los 14 toma en total cerca de 2–3 horas, y puede dividirse en varias sesiones. Todo se ejecuta en Google Colab — no necesitas instalar nada localmente.
 
 Recommended order / Orden recomendado:
 
