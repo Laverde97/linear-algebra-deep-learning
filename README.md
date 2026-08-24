@@ -81,7 +81,7 @@ The matching slide sections are in the [English deck](https://laverde97.github.i
 
 This repository is meant to **complement**, not duplicate, in-depth blog coverage of SVD and matrix factorizations — use it to build or refresh the linear-algebra prerequisites, then read the deeper material with the notation and intuition already in hand.
 
-**Related blog posts — two complementary articles by Ravi Kalia:
+**Related blog posts** — two complementary articles by Ravi Kalia:
 
 - [The Matrix That Rotates, Stretches, and Rotates Again](https://project-delphi.github.io/ml-blog/posts/svd-rotate-stretch-rotate/) — an intuitive, interactive exploration of SVD / una exploración intuitiva e interactiva de la descomposición en valores singulares (SVD).
 - [Matrix Factorizations as Optimization Problems: QR, SVD, Eigendecomposition, NMF, and Cholesky](https://project-delphi.github.io/ml-blog/posts/matrix-factorizations/) — QR, SVD, eigendecomposition, NMF, and Cholesky from an optimization perspective / QR, SVD, eigendecomposition, NMF y Cholesky desde una perspectiva de optimización.
