@@ -79,7 +79,12 @@ These notebooks build the concepts up in order, each with a runnable Colab lab:
 
 The matching slide sections are in the [English deck](https://laverde97.github.io/linear-algebra-deep-learning/en/slides/#eigendecomposition) and [Spanish deck](https://laverde97.github.io/linear-algebra-deep-learning/es/slides/#descomposición-en-autovalores-eigendecomposition), sections 2.6–2.9 and 2.12.
 
-This repository is meant to **complement**, not duplicate, in-depth blog coverage of SVD and matrix factorizations (such as Ravi Kalia's posts) — use it to build or refresh the linear-algebra prerequisites, then read the deeper material with the notation and intuition already in hand.
+This repository is meant to **complement**, not duplicate, in-depth blog coverage of SVD and matrix factorizations — use it to build or refresh the linear-algebra prerequisites, then read the deeper material with the notation and intuition already in hand.
+
+**Related blog posts / Publicaciones relacionadas** — two complementary articles by Ravi Kalia:
+
+- [The Matrix That Rotates, Stretches, and Rotates Again](https://project-delphi.github.io/ml-blog/posts/svd-rotate-stretch-rotate/) — an intuitive, interactive exploration of SVD / una exploración intuitiva e interactiva de la descomposición en valores singulares (SVD).
+- [Matrix Factorizations as Optimization Problems: QR, SVD, Eigendecomposition, NMF, and Cholesky](https://project-delphi.github.io/ml-blog/posts/matrix-factorizations/) — QR, SVD, eigendecomposition, NMF, and Cholesky from an optimization perspective / QR, SVD, eigendecomposition, NMF y Cholesky desde una perspectiva de optimización.
 
 ## Repository structure 
 
